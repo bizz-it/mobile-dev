@@ -19,6 +19,9 @@
     <com.google.android.material.textview.MaterialTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:fontFamily="@font/worksans_bold"
+        android:textSize="33dp"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
