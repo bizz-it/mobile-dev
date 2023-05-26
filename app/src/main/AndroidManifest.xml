@@ -13,8 +13,18 @@
         android:theme="@style/Theme.Mobiledev"
         tools:targetApi="31">
         <activity
-            android:name=".ui.onboarding.SplashActivity"
+            android:name=".ui.auth.OTPRegister"
             android:exported="false" />
+        <activity
+            android:name=".ui.onboarding.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Mobiledev">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".ui.auth.RegisterActivity"
             android:exported="false" />
@@ -23,15 +33,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.Mobiledev">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true"/>
     </application>
 
 </manifest>
