@@ -1,5 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Base application theme. -->
+    <style name="Theme.Mobiledev" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/lightblue</item>
+        <item name="colorPrimaryVariant">@color/darkblue</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/yellow</item>
+        <item name="colorSecondaryVariant">@color/cream</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimary</item>
+        <!-- Customize your theme here. -->
+    </style>
 
-    <style name="Theme.Mobiledev" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="LoginTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/lightblue</item>
+        <item name="boxStrokeWidth">1dp</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.TextInputLayout.Rounded" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">20%</item>
+    </style>
+
 </resources>

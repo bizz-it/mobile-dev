@@ -6,4 +6,158 @@
     android:layout_height="match_parent"
     tools:context=".ui.auth.LoginActivity">
 
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/materialTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/worksans_bold"
+        android:text="@string/login"
+        android:textColor="@color/yellow"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/materialTextView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/worksans_bold"
+        android:text="@string/sublogin"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialTextView" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailInput"
+        style="@style/LoginTextInputLayoutStyle"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="92dp"
+        android:fontFamily="@font/worksans_regular"
+        android:hint="@string/email"
+        android:textColorHint="?colorPrimary"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialTextView2"
+        app:shapeAppearance="@style/ShapeAppearanceOverlay.TextInputLayout.Rounded"
+        app:startIconDrawable="@drawable/round_email_24">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/email"
+            android:layout_width="340dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:inputType="textAutoComplete"
+            android:saveEnabled="true" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/pass"
+        style="@style/LoginTextInputLayoutStyle"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/worksans_regular"
+        android:hint="@string/pass"
+        android:textColorHint="?colorPrimary"
+        android:textSize="14sp"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/lightblue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailInput"
+        app:shapeAppearance="@style/ShapeAppearanceOverlay.TextInputLayout.Rounded"
+        app:startIconDrawable="@drawable/round_lock_24">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/passInput"
+            android:layout_width="340dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:inputType="textPassword"
+            android:saveEnabled="true"
+            android:ems="15"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnLogin"
+        android:layout_width="340dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="?colorPrimaryVariant"
+        android:fontFamily="@font/worksans_bold"
+        android:text="@string/login"
+        android:textAllCaps="false"
+        android:textColor="?colorOnSecondary"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pass"
+        app:shapeAppearance="@style/ShapeAppearanceOverlay.TextInputLayout.Rounded" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/materialTextView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/worksans_regular"
+        android:text="@string/or"
+        android:textColor="?colorOnPrimary"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toTopOf="@+id/loginGoogle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/loginGoogle"
+        android:layout_width="340dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="52dp"
+        android:backgroundTint="?colorOnSecondary"
+        android:fontFamily="@font/worksans_bold"
+        android:text="@string/logGoogle"
+        android:textAllCaps="false"
+        android:textColor="?colorPrimary"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin"
+        app:shapeAppearance="@style/ShapeAppearanceOverlay.TextInputLayout.Rounded"
+        app:strokeColor="?colorPrimary"
+        app:strokeWidth="2dp" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/materialTextView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="92dp"
+        android:layout_marginBottom="32dp"
+        android:fontFamily="@font/worksans_regular"
+        android:text="@string/txtRegist"
+        android:textColor="?colorOnPrimary"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/materialTextView5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/materialTextView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="92dp"
+        android:layout_marginBottom="32dp"
+        android:fontFamily="@font/worksans_bold"
+        android:text="@string/regist"
+        android:textColor="?colorPrimaryVariant"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/materialTextView4" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

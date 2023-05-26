@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">BIZZ.IT</string>
+    <string name="login">Login</string>
+    <string name="regist">Sign Up</string>
+    <string name="logGoogle">Login with Google</string>
+    <string name="sublogin">Login to your account to continue!</string>
+    <string name="email">Enter your e-mail</string>
+    <string name="pass">Enter your password</string>
+    <string name="or">OR</string>
+    <string name="txtRegist">Don’t have an account?</string>
 </resources>
