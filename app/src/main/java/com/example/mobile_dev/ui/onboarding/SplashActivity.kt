@@ -5,12 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import androidx.lifecycle.ViewModelProvider
 import com.example.mobile_dev.MainActivity
-import com.example.mobile_dev.R
-import com.example.mobile_dev.UserPreferences
+import com.example.mobile_dev.data.repository.UserPreferences
 import com.example.mobile_dev.databinding.ActivitySplashBinding
-import com.example.mobile_dev.ui.auth.LoginActivity
 import com.example.mobile_dev.ui.auth.dataStore
 
 class SplashActivity :  AppCompatActivity() {
@@ -33,7 +30,7 @@ class SplashActivity :  AppCompatActivity() {
                 val intent = Intent(this@SplashActivity, MainActivity::class.java)
                 startActivity(intent)
             } else {
-                val intent = Intent(this@SplashActivity, LoginActivity::class.java)
+                val intent = Intent(this@SplashActivity, OnBoardingActivity::class.java)
                 startActivity(intent)
             }
             finish()

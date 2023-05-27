@@ -1,14 +1,11 @@
-package com.example.mobile_dev
+package com.example.mobile_dev.data.repository
 
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.map
 import androidx.datastore.preferences.core.Preferences
 import com.example.mobile_dev.data.response.AuthResponse
-import com.example.mobile_dev.data.response.UserResponse
 
 class UserPreferences private constructor(private val dataStore: DataStore<Preferences>) {
 
