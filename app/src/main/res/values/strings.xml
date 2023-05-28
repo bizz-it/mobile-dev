@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">BIZZ.IT</string>
+
     <string name="login">Login</string>
     <string name="regist">Register</string>
     <string name="logGoogle">Login with Google</string>
@@ -12,6 +13,7 @@
     <string name="secpass">Re-enter your password</string>
     <string name="registAcc">I accept the Terms of Use &amp; Privacy Policy</string>
     <string name="txtLogin">Already have an account?</string>
+    <string name="wait">Please wait for a moment…</string>
     <string name="or">OR</string>
     <string name="otphint">-</string>
     <string name="txtRegist">Don’t have an account?</string>
@@ -19,4 +21,11 @@
     <string name="change">Change Email Address</string>
     <string name="otp">To continue, please enter the OTP code we’ve just sent to your e-mail</string>
     <string name="resendotp">Resend OTP</string>
+    <string name="emptymail">Email cannot be empty</string>
+    <string name="emptyname">Name cannot be empty</string>
+    <string name="emptypass">Password cannot be empty</string>
+    <string name="emptytelf">Telephone number cannot be empty</string>
+    <string name="errormail">Input the correct e-mail format</string>
+    <string name="errorpass">Password length must be more than 6</string>
+    <string name="errorsecpass">Password is not the same. Check again</string>
 </resources>

@@ -81,7 +81,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/emailInput"
+        android:id="@+id/email"
         style="@style/LoginTextInputLayoutStyle"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
@@ -97,7 +97,7 @@
         app:startIconDrawable="@drawable/round_email_24">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/email"
+            android:id="@+id/emailInput"
             android:layout_width="340dp"
             android:layout_height="match_parent"
             android:layout_gravity="start"
@@ -117,7 +117,7 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailInput"
+        app:layout_constraintTop_toBottomOf="@+id/email"
         app:shapeAppearance="@style/ShapeAppearanceOverlay.TextInputLayout.Rounded"
         app:startIconDrawable="@drawable/round_call_24">
 
@@ -201,7 +201,7 @@
         app:layout_constraintTop_toBottomOf="@+id/secPass" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnRegist"
         android:layout_width="340dp"
         android:layout_height="62dp"
         android:layout_marginTop="8dp"
@@ -242,7 +242,7 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin"
+        app:layout_constraintTop_toBottomOf="@+id/btnRegist"
         app:shapeAppearance="@style/ShapeAppearanceOverlay.TextInputLayout.Rounded"
         app:strokeColor="?colorPrimary"
         app:strokeWidth="2dp" />
