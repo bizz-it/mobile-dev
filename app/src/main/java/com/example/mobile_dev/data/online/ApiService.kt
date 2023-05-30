@@ -1,6 +1,7 @@
 package com.example.mobile_dev.data.online
 
 import com.example.mobile_dev.data.response.AuthResponse
+import com.example.mobile_dev.data.response.RegistResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.http.*
@@ -9,10 +10,10 @@ interface ApiService {
     @FormUrlEncoded
     @POST("users/register")
     suspend fun postRegister(
-        @Field("name") name: String,
+        @Field("nama") name: String,
         @Field("email") email: String,
         @Field("password") password: String,
-        @Field("no_telp") no_telp: String): AuthResponse
+        @Field("no_telp") telf: String): AuthResponse
 
     @FormUrlEncoded
     @POST("users/login")

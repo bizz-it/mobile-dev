@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.map
 import androidx.datastore.preferences.core.Preferences
 import com.example.mobile_dev.data.response.AuthResponse
 import com.example.mobile_dev.data.response.UserResponse
+import com.example.mobile_dev.data.response.Value
 
 class UserPreferences private constructor(private val dataStore: DataStore<Preferences>) {
 
@@ -21,7 +22,7 @@ class UserPreferences private constructor(private val dataStore: DataStore<Prefe
 //        }
 //    }
 
-    suspend fun putUserData(user : AuthResponse?) {
+    suspend fun putUserData(user : Value?) {
         dataStore.edit { preferences ->
 //            preferences[TOKEN] = user?.loginResult?.token.toString()
 //            preferences[STATUS] = user?.error as Boolean

@@ -1,19 +1,16 @@
 package com.example.mobile_dev.ui.auth
 
-import android.animation.AnimatorSet
-import android.animation.ObjectAnimator
 import android.app.Dialog
 import android.content.Intent
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityOptionsCompat
 import com.example.mobile_dev.R
-import com.example.mobile_dev.databinding.ActivityRegisterBinding
 import com.example.mobile_dev.data.Result
+import com.example.mobile_dev.databinding.ActivityRegisterBinding
+
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var binding : ActivityRegisterBinding
@@ -28,11 +25,11 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(binding.root)
         supportActionBar?.setDisplayShowTitleEnabled(false)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        playAnimation()
+//        playAnimation()
 
         binding.login.setOnClickListener{
             val i = Intent(this, LoginActivity::class.java)
-            startActivity(i, ActivityOptionsCompat.makeSceneTransitionAnimation(this@RegisterActivity).toBundle())
+            startActivity(i)
         }
 
         binding.apply{
@@ -56,16 +53,19 @@ class RegisterActivity : AppCompatActivity() {
                         passInput.error = resources.getString(R.string.errorpass)
                     }
                     !email.contains('@') -> {
-                        passInput.error = resources.getString(R.string.errormail)
+                        emailInput.error = resources.getString(R.string.errormail)
                     }
                     telf.isEmpty() -> {
-                        passInput.error = resources.getString(R.string.emptytelf)
+                        telfInput.error = resources.getString(R.string.emptytelf)
                     }
                     secPass.isEmpty() -> {
-                        passInput.error = resources.getString(R.string.emptypass)
+                        secPassInput.error = resources.getString(R.string.emptypass)
                     }
                     secPass != (pass) -> {
-                        passInput.error = resources.getString(R.string.errorsecpass)
+                        secPassInput.error = resources.getString(R.string.errorsecpass)
+                    }
+                    !checkbox.isChecked -> {
+                        Toast.makeText(this@RegisterActivity, R.string.check, Toast.LENGTH_SHORT).show()
                     }
                     else -> { register(name, email, pass, telf) }
                 }
@@ -80,7 +80,6 @@ class RegisterActivity : AppCompatActivity() {
         if (dialog.window != null) {
             dialog.window?.setBackgroundDrawable(ColorDrawable(0))
         }
-        val i = Intent(this, LoginActivity::class.java)
 
         authViewModel.register(name, email, pass, telf).observe(this) { result ->
             if (result != null) {
@@ -91,41 +90,42 @@ class RegisterActivity : AppCompatActivity() {
                         }
                         is Result.Success -> {
                             cancel()
-                                if(binding.passInput.text?.length!! > 7) {
-                                    Toast.makeText(this@RegisterActivity, resources.getString(R.string.regist), Toast.LENGTH_SHORT).show()
-                                    startActivity(i)
-                                } else {
-                                    cancel()
-                                    Toast.makeText(this@RegisterActivity, resources.getString(R.string.errorpass), Toast.LENGTH_LONG).show()
-                                }
+                            val i = Intent(this@RegisterActivity, OTPRegister::class.java)
+                            Toast.makeText(this@RegisterActivity, resources.getString(R.string.successreg), Toast.LENGTH_SHORT).show()
+                            startActivity(i)
                         }
                         is Result.Error -> {
                             cancel()
-                            Toast.makeText(this@RegisterActivity, result.error, Toast.LENGTH_LONG).show()
+                            Toast.makeText(this@RegisterActivity, result.error, Toast.LENGTH_SHORT).show()
                         }
                     }
                 }
             }
         }
     }
-    private fun playAnimation() {
-        binding.apply {
-            val secpass = ObjectAnimator.ofFloat(secPass, View.ALPHA, 1f).setDuration(DURATION)
-            val pass = ObjectAnimator.ofFloat(pass, View.ALPHA, 1f).setDuration(DURATION)
-            val telf = ObjectAnimator.ofFloat(telf, View.ALPHA, 1f).setDuration(DURATION)
-            val email = ObjectAnimator.ofFloat(email, View.ALPHA, 1f).setDuration(DURATION)
-            val name = ObjectAnimator.ofFloat(name, View.ALPHA, 1f).setDuration(DURATION)
-
-            AnimatorSet().apply {
-                playSequentially(name, email, telf, pass, secpass)
-                start()
-            }
-        }
-    }
+//    private fun playAnimation() {
+//        binding.apply {
+//            val secpass = ObjectAnimator.ofFloat(secPass, View.ALPHA, 1f).setDuration(DURATION)
+//            val pass = ObjectAnimator.ofFloat(pass, View.ALPHA, 1f).setDuration(DURATION)
+//            val telf = ObjectAnimator.ofFloat(telf, View.ALPHA, 1f).setDuration(DURATION)
+//            val email = ObjectAnimator.ofFloat(email, View.ALPHA, 1f).setDuration(DURATION)
+//            val name = ObjectAnimator.ofFloat(name, View.ALPHA, 1f).setDuration(DURATION)
+//
+//            AnimatorSet().apply {
+//                playSequentially(name, email, telf, pass, secpass)
+//                start()
+//            }
+//        }
+//    }
 
     override fun onSupportNavigateUp(): Boolean {
         finish()
         return true
+    }
+
+    override fun finish() {
+        super.finish()
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
     }
 
     companion object {

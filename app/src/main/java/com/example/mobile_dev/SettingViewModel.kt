@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.mobile_dev.data.response.AuthResponse
+import com.example.mobile_dev.data.response.Value
 import kotlinx.coroutines.launch
 
 class SettingViewModel (private val pref: UserPreferences) : ViewModel() {
@@ -13,7 +14,7 @@ class SettingViewModel (private val pref: UserPreferences) : ViewModel() {
 //        return pref.getUserData().asLiveData()
 //    }
 
-    fun saveUserData(userData: AuthResponse?) {
+    fun saveUserData(userData: Value?) {
         viewModelScope.launch {
             pref.putUserData(userData)
         }

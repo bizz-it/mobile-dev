@@ -8,8 +8,8 @@ import com.example.mobile_dev.di.Injection
 
 class AuthViewModel (private val franchiseRepository: FranchiseRepository) : ViewModel() {
     fun login(email: String, pass: String) = franchiseRepository.login(email, pass)
-    fun register(nama: String, email: String, pass: String, no_telp: String) =
-        franchiseRepository.register(nama, email, pass, no_telp)
+    fun register(nama: String, email: String, pass: String, telf: String) =
+        franchiseRepository.register(nama, email, pass, telf)
 }
 
 class ViewModelFactory (private val context: Context) : ViewModelProvider.Factory {

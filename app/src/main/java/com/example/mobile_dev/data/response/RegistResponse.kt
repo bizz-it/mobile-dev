@@ -2,10 +2,10 @@ package com.example.mobile_dev.data.response
 
 import com.google.gson.annotations.SerializedName
 
-data class AuthResponse(
+data class RegistResponse(
 
 	@field:SerializedName("data")
-	val value: Value? = null,
+	val data: Data? = null,
 
 	@field:SerializedName("message")
 	val message: String? = null,
@@ -20,16 +20,10 @@ data class AuthResponse(
 	val token: String? = null
 )
 
-data class Value(
+data class Data(
 
 	@field:SerializedName("nama")
 	val nama: String? = null,
-
-	@field:SerializedName("foto")
-	val foto: Any? = null,
-
-	@field:SerializedName("tempat_lahir")
-	val tempatLahir: Any? = null,
 
 	@field:SerializedName("id")
 	val id: String? = null,
@@ -41,8 +35,5 @@ data class Value(
 	val isVerified: Boolean? = null,
 
 	@field:SerializedName("email")
-	val email: String? = null,
-
-	@field:SerializedName("tanggal_lahir")
-	val tanggalLahir: Any? = null
+	val email: String? = null
 )

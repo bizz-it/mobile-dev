@@ -39,11 +39,11 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
         supportActionBar?.setDisplayShowTitleEnabled(false)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        playAnimation()
+//        playAnimation()
 
         binding.regist.setOnClickListener{
             val i = Intent(this, RegisterActivity::class.java)
-            startActivity(i, ActivityOptionsCompat.makeSceneTransitionAnimation(this@LoginActivity).toBundle())
+            startActivity(i)
         }
         binding.apply {
             btnLogin.setOnClickListener{
@@ -53,7 +53,7 @@ class LoginActivity : AppCompatActivity() {
                     email.isEmpty() -> {
                         emailInput.error = resources.getString(R.string.emptymail)
                     }
-                    email.contains('@') -> {
+                    !email.contains('@') -> {
                         emailInput.error = resources.getString(R.string.errormail)
                     }
                     pass.isEmpty() -> {
@@ -69,7 +69,6 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun login(email: String, pass: String) {
-        val i = Intent(this, MainActivity::class.java)
         val pref = this.dataStore
         val data = UserPreferences.getInstance(pref)
         val viewModel = ViewModelProvider(this, SettingFactory(data))[SettingViewModel::class.java]
@@ -89,11 +88,10 @@ class LoginActivity : AppCompatActivity() {
                         }
                         is Result.Success -> {
                             cancel()
-                            if(result.data?.error == false) {
-                                    viewModel.saveUserData(result.data)
-                                    Toast.makeText(this@LoginActivity, resources.getString(R.string.login), Toast.LENGTH_SHORT).show()
-                                    startActivity(i)
-                            }
+                                val i = Intent(this@LoginActivity, MainActivity::class.java)
+                                viewModel.saveUserData(result.data?.value)
+                                Toast.makeText(this@LoginActivity, resources.getString(R.string.successlog), Toast.LENGTH_SHORT).show()
+                                startActivity(i)
                         }
                         is Result.Error -> {
                             cancel()
@@ -105,22 +103,27 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun playAnimation() {
-        binding.apply {
-            val email = ObjectAnimator.ofFloat(email, View.ALPHA, 1f).setDuration(DURATION)
-            val pass = ObjectAnimator.ofFloat(pass, View.ALPHA, 1f).setDuration(DURATION)
-
-            AnimatorSet().apply {
-                playSequentially(email, pass)
-                start()
-            }
-        }
-    }
+//    private fun playAnimation() {
+//        binding.apply {
+//            val email = ObjectAnimator.ofFloat(email, View.ALPHA, 1f).setDuration(DURATION)
+//            val pass = ObjectAnimator.ofFloat(pass, View.ALPHA, 1f).setDuration(DURATION)
+//
+//            AnimatorSet().apply {
+//                playSequentially(email, pass)
+//                start()
+//            }
+//        }
+//    }
 
     @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
         finish()
         exitProcess(0)
+    }
+
+    override fun finish() {
+        super.finish()
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
     }
 
     companion object {

@@ -126,7 +126,7 @@
             android:layout_width="340dp"
             android:layout_height="match_parent"
             android:layout_gravity="start"
-            android:inputType="textPassword"
+            android:inputType="number"
             android:saveEnabled="true"
             android:ems="15"/>
     </com.google.android.material.textfield.TextInputLayout>
@@ -227,7 +227,7 @@
         app:layout_constraintBottom_toTopOf="@+id/loginGoogle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/btnRegist" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/loginGoogle"

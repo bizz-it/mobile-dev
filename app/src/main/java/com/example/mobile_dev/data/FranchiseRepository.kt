@@ -8,6 +8,7 @@ import androidx.lifecycle.map
 import com.example.mobile_dev.data.online.ApiService
 import com.example.mobile_dev.data.response.AuthResponse
 import com.example.mobile_dev.data.Result
+import retrofit2.HttpException
 
 class FranchiseRepository private constructor(private val apiService: ApiService){
     private val _response = MutableLiveData<AuthResponse?>()
@@ -21,7 +22,7 @@ class FranchiseRepository private constructor(private val apiService: ApiService
 
         } catch (e: Exception) {
             Log.d("StoryRepository", "${e.message.toString()} ")
-            emit(Result.Error(e.message.toString()))
+            emit(Result.Error( "${e.message.toString()} "))
         }
         val localData: LiveData<Result<AuthResponse?>> = response.map { Result.Success(it) }
         emitSource(localData)
@@ -32,14 +33,14 @@ class FranchiseRepository private constructor(private val apiService: ApiService
         try {
             val response = apiService.postRegister(nama, email, pass, no_telp)
             _response.value = response
-
         } catch (e: Exception) {
-            Log.d("StoryRepository", "${e.message.toString()} ")
-            emit(Result.Error(e.message.toString()))
+            Log.d("StoryRepository", "${e.localizedMessage} ")
+            emit(Result.Error( "${e.localizedMessage} "))
         }
         val localData: LiveData<Result<AuthResponse?>> = response.map { Result.Success(it) }
         emitSource(localData)
     }
+
 
     companion object {
         @Volatile

@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">BIZZ.IT</string>
 
+    <string name="successlog">Login has been successful</string>
+    <string name="successreg">Registration has been successful</string>
+    <string name="check">Checkbox Terms and Privacy Policy can\'t be empty</string>
     <string name="login">Login</string>
     <string name="regist">Register</string>
     <string name="logGoogle">Login with Google</string>
