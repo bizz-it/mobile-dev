@@ -17,5 +17,6 @@ class RegisterActivity : AppCompatActivity() {
             val i = Intent(this@RegisterActivity, LoginActivity::class.java)
             startActivity(i)
         }
+        //KITA TEST DULU YA
     }
 }
