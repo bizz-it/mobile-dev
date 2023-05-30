@@ -33,4 +33,8 @@
     <string name="desc_menu_3">Validasi skill Anda melalui 1-on-1 Professional Code Review yang diberikan langsung oleh Developer Expert.</string>
     <string name="desc_menu_4">Sertifikat yang membuktikan pengetahuan fundamental beserta keterampilan nyata yang diinginkan perusahaan global.</string>
     <string name="learn_now">Belajar Sekarang</string>
+    <string name="placeholder_search">Search your franchise</string>
+    <string name="idr">IDR</string>
+    <string name="total_shop">Total Gerai :</string>
+    <string name="shop">Toko</string>
 </resources>
