@@ -90,48 +90,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profile" />
 
-    <RelativeLayout
-        android:id="@+id/photoBox"
-        android:layout_width="350dp"
-        android:layout_height="240dp"
-        android:layout_marginTop="96dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profiledetail"
-        android:background="@drawable/photobox"
-        android:gravity="center">
-
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/photo"
-            android:layout_width="320dp"
-            android:layout_height="210dp"
-            android:layout_marginBottom="4dp"/>
-
-
-    </RelativeLayout>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/photoGuideline"
-        android:layout_width="350dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="18dp"
-        android:backgroundTint="?colorOnSecondary"
-        android:fontFamily="@font/worksans_bold"
-        android:text="@string/guideline"
-        android:textAllCaps="false"
-        android:textColor="?colorPrimary"
-        android:textSize="14sp"
-        android:textAlignment="textStart"
-        app:iconPadding="16dp"
-        app:icon="@drawable/baseline_info_24"
-        app:iconTint="?colorPrimary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/photoBox"
-        app:shapeAppearance="@style/ShapeAppearanceOverlay.TextInputLayout.Rounded"
-        app:strokeColor="?colorPrimary"
-        app:strokeWidth="2dp" />
-
     <androidx.compose.ui.platform.ComposeView
         android:id="@+id/nextBtn"
         android:layout_width="340dp"
@@ -139,6 +97,6 @@
         android:layout_marginTop="96dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/photoGuideline" />
+        app:layout_constraintTop_toBottomOf="@+id/profiledetail" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

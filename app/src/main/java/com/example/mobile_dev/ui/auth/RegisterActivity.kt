@@ -11,7 +11,7 @@ import com.example.mobile_dev.R
 import com.example.mobile_dev.compose.theme.MobiledevTheme
 import com.example.mobile_dev.data.Result
 import com.example.mobile_dev.databinding.ActivityRegisterBinding
-import com.example.mobile_dev.ui.ButtonApp
+import com.example.mobile_dev.ui.component.ButtonApp
 
 
 class RegisterActivity : AppCompatActivity() {

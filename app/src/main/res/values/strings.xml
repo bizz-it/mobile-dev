@@ -72,8 +72,11 @@
     <string name="locationphoto">Location Photo</string>
     <string name="locationdetail">Please provide photo of place/spot for franchise</string>
     <string name="price">Price</string>
+    <string name="submit">Submit</string>
     <string name="pricedetail">Please choose which package/price you want</string>
     <string name="date">Date of Birth</string>
+    <string name="next">Next</string>
+    <string name="take">Start Take a Photo</string>
     <string name="place">Place of Birth</string>
     <string name="location">Enter your location</string>
     <string name="guideline">Check Photo Guideline</string>

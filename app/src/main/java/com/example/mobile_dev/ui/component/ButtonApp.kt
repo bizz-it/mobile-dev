@@ -1,29 +1,16 @@
-package com.example.mobile_dev.ui.agreement
+package com.example.mobile_dev.ui.component
 
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.rounded.KeyboardArrowLeft
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.ColorScheme
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -33,35 +20,28 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.mobile_dev.R
-import com.example.mobile_dev.compose.theme.MobiledevTheme
+import com.example.mobile_dev.ui.theme.MobiledevTheme
 
 @Composable
-fun TopBar(
+fun ButtonApp(
     title: String,
     modifier: Modifier = Modifier,
     onClick: () -> Unit,
 ) {
-    Box(modifier = modifier.fillMaxWidth()) {
+    Box(modifier = modifier.width(340.dp)) {
         Button(
             onClick = onClick,
-            colors = ButtonDefaults.buttonColors(Color.White),
+            shape = RoundedCornerShape(20),
+            colors = ButtonDefaults.buttonColors(colorResource(R.color.darkblue)),
             modifier = modifier
-                .width(80.dp)
-                .height(64.dp)
+                .width(340.dp)
+                .height(52.dp)
         ) {
-            Icon(
-                imageVector = Icons.Rounded.KeyboardArrowLeft,
-                modifier = modifier.size(32.dp),
-                contentDescription = null,
-                tint = colorResource(R.color.darkblue),
-            )
-        }
-        Row(modifier.height(64.dp), verticalAlignment = Alignment.CenterVertically) {
             Text(
                 text = title,
-                fontSize = 20.sp,
+                fontSize = 16.sp,
                 fontFamily = FontFamily(Font(R.font.worksans_bold, FontWeight.Bold)),
-                color = colorResource(R.color.darkblue),
+                color = colorResource(R.color.white),
                 textAlign = TextAlign.Center,
                 style = MaterialTheme.typography.bodyLarge.copy(
                     fontWeight = FontWeight.ExtraBold
@@ -76,9 +56,9 @@ fun TopBar(
 
 @Composable
 @Preview(showBackground = true)
-fun TopBarPreview() {
+fun ButtonAppPreview() {
     MobiledevTheme() {
-        TopBar(
+        ButtonApp(
             title = "Agreement",
             onClick = {}
         )
