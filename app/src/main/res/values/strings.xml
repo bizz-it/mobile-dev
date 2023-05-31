@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">BIZZ.IT</string>
 
+    <string name="picture">Take a Picture</string>
+    <!--    Auth Screen Text-->
     <string name="successlog">Login has been successful</string>
     <string name="successreg">Registration has been successful</string>
     <string name="check">Checkbox Terms and Privacy Policy can\'t be empty</string>
@@ -31,4 +33,28 @@
     <string name="errormail">Input the correct e-mail format</string>
     <string name="errorpass">Password length must be more than 6</string>
     <string name="errorsecpass">Password is not the same. Check again</string>
+    <string name="title_activity_progress_one">ProgressOne</string>
+
+    <!--    Detail Screen Text-->
+    <string name="detail">Detail</string>
+    <string name="seedoc">View Doc</string>
+    <string name="downloaddoc">Download</string>
+    <string name="agreementbtn">Make Agreement</string>
+
+    <!--    Agreement Screen Text-->
+    <string name="agreement">Agreement</string>
+    <string name="franchiseprofile">Franchisor Profile</string>
+    <string name="franchisedetail">Please provide your full information</string>
+    <string name="locationphoto">Location Photo</string>
+    <string name="locationdetail">Please provide photo of place/spot for franchise</string>
+    <string name="price">Price</string>
+    <string name="pricedetail">Please choose which package/price you want</string>
+    <string name="date">Date of Birth</string>
+    <string name="place">Place of Birth</string>
+    <string name="location">Enter your location</string>
+    <string name="guideline">Check Photo Guideline</string>
+    <string name="photocheck">Please choose which package/price you want</string>
+    <string name="photocheckdetail">Date of Birth</string>
+    <string name="idcheck">ID Card Checker</string>
+    <string name="idcheckdetail">To continue, take a picture of your official ID Card. Please make sure the photo is not blur and according to photo guideline.</string>
 </resources>

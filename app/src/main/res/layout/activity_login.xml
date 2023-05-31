@@ -46,7 +46,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/materialTextView2"
         app:shapeAppearance="@style/ShapeAppearanceOverlay.TextInputLayout.Rounded"
-        app:startIconDrawable="@drawable/round_email_24">
+        app:startIconDrawable="@drawable/round_email_24"
+        app:startIconTint="?colorPrimary">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/emailInput"
@@ -67,14 +68,14 @@
         android:hint="@string/pass"
         android:textColorHint="?colorPrimary"
         android:textSize="14sp"
-
         app:passwordToggleEnabled="true"
         app:passwordToggleTint="@color/lightblue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email"
         app:shapeAppearance="@style/ShapeAppearanceOverlay.TextInputLayout.Rounded"
-        app:startIconDrawable="@drawable/round_lock_24">
+        app:startIconDrawable="@drawable/round_lock_24"
+        app:startIconTint="?colorPrimary">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/passInput"
@@ -86,21 +87,14 @@
             android:ems="15"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.button.MaterialButton
+    <androidx.compose.ui.platform.ComposeView
         android:id="@+id/btnLogin"
         android:layout_width="340dp"
-        android:layout_height="62dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:backgroundTint="?colorPrimaryVariant"
-        android:fontFamily="@font/worksans_bold"
-        android:text="@string/login"
-        android:textAllCaps="false"
-        android:textColor="?colorOnSecondary"
-        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pass"
-        app:shapeAppearance="@style/ShapeAppearanceOverlay.TextInputLayout.Rounded" />
+        app:layout_constraintTop_toBottomOf="@+id/pass" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/materialTextView3"
@@ -118,7 +112,7 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/loginGoogle"
         android:layout_width="340dp"
-        android:layout_height="62dp"
+        android:layout_height="64dp"
         android:layout_marginTop="52dp"
         android:backgroundTint="?colorOnSecondary"
         android:fontFamily="@font/worksans_bold"
@@ -126,8 +120,11 @@
         android:textAllCaps="false"
         android:textColor="?colorPrimary"
         android:textSize="14sp"
-        android:drawableStart="@drawable/icons8_google"
+        app:icon="@drawable/icons8_google"
+        app:iconGravity="start"
+        app:iconTintMode="add"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnLogin"
         app:shapeAppearance="@style/ShapeAppearanceOverlay.TextInputLayout.Rounded"

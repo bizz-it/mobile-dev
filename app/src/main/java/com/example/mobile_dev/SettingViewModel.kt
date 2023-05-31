@@ -4,17 +4,19 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.mobile_dev.data.response.AuthResponse
+import com.example.mobile_dev.data.response.UserResponse
 import com.example.mobile_dev.data.response.Value
 import kotlinx.coroutines.launch
 
 class SettingViewModel (private val pref: UserPreferences) : ViewModel() {
-//    fun getUserData(): LiveData<AuthResponse> {
-//        return pref.getUserData().asLiveData()
-//    }
+    fun getUserData(): LiveData<UserResponse> {
+        return pref.getUserData().asLiveData()
+    }
 
-    fun saveUserData(userData: Value?) {
+    fun saveUserData(userData: AuthResponse?) {
         viewModelScope.launch {
             pref.putUserData(userData)
         }

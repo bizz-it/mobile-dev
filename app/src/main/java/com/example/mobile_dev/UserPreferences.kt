@@ -13,21 +13,19 @@ import com.example.mobile_dev.data.response.Value
 
 class UserPreferences private constructor(private val dataStore: DataStore<Preferences>) {
 
-//    fun getUserData(): Flow<UserResponse> {
-//        return dataStore.data.map { preferences ->
-//            UserResponse(preferences[TOKEN] ?: "",
-//                preferences[STATUS] ?: false,
-//                preferences[NAMA] ?: "",
-//                preferences[USERID] ?: "")
-//        }
-//    }
+    fun getUserData(): Flow<UserResponse> {
+        return dataStore.data.map { preferences ->
+            UserResponse(preferences[TOKEN] ?: "",
+                preferences[STATUS] ?: false,
+                preferences[USERID] ?: "")
+        }
+    }
 
-    suspend fun putUserData(user : Value?) {
+    suspend fun putUserData(user : AuthResponse?) {
         dataStore.edit { preferences ->
-//            preferences[TOKEN] = user?.loginResult?.token.toString()
-//            preferences[STATUS] = user?.error as Boolean
-//            preferences[NAMA] = user.loginResult?.name.toString()
-//            preferences[USERID] = user.loginResult?.userId.toString()
+            preferences[TOKEN] = user?.token.toString()
+            preferences[STATUS] = user?.value?.isVerified as Boolean
+            preferences[USERID] = user.value.id.toString()
         }
     }
 
@@ -39,9 +37,14 @@ class UserPreferences private constructor(private val dataStore: DataStore<Prefe
 
     companion object {
         private val TOKEN = stringPreferencesKey("tokenuser")
-        private val STATUS = booleanPreferencesKey("statususer")
-        private val NAMA = stringPreferencesKey("namauser")
+        private val FOTO = stringPreferencesKey("fotouser")
+        private val NAME = stringPreferencesKey("nameuser")
         private val USERID = stringPreferencesKey("userid")
+        private val EMAIL = stringPreferencesKey("emailuser")
+        private val PLACE = stringPreferencesKey("placebirth")
+        private val DATE = stringPreferencesKey("datebirth")
+        private val STATUS = booleanPreferencesKey("status")
+        private val TELF = stringPreferencesKey("telfuser")
         @Volatile
         private var INSTANCE: UserPreferences? = null
 

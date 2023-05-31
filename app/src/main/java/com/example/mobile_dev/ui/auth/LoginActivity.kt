@@ -22,7 +22,11 @@ import com.example.mobile_dev.R
 import com.example.mobile_dev.SettingFactory
 import com.example.mobile_dev.SettingViewModel
 import com.example.mobile_dev.UserPreferences
+import com.example.mobile_dev.compose.theme.MobiledevTheme
 import com.example.mobile_dev.databinding.ActivityLoginBinding
+import com.example.mobile_dev.ui.ButtonApp
+import com.example.mobile_dev.ui.agreement.ProgressOne
+import com.example.mobile_dev.ui.agreement.TopBar
 import kotlin.system.exitProcess
 
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
@@ -45,25 +49,31 @@ class LoginActivity : AppCompatActivity() {
             val i = Intent(this, RegisterActivity::class.java)
             startActivity(i)
         }
-        binding.apply {
-            btnLogin.setOnClickListener{
-                val email = emailInput.text.toString()
-                val pass = passInput.text.toString()
-                when {
-                    email.isEmpty() -> {
-                        emailInput.error = resources.getString(R.string.emptymail)
-                    }
-                    !email.contains('@') -> {
-                        emailInput.error = resources.getString(R.string.errormail)
-                    }
-                    pass.isEmpty() -> {
-                        passInput.error = resources.getString(R.string.emptypass)
-                    }
-                    pass.length < 6 -> {
-                        passInput.error = resources.getString(R.string.errorpass)
-                    }
-                    else -> { login(email, pass)}
-                }
+
+        binding.btnLogin.setContent {
+            MobiledevTheme {
+                ButtonApp(
+                    getString(R.string.login),
+                    onClick = { binding.apply {
+                            val email = emailInput.text.toString()
+                            val pass = passInput.text.toString()
+                            when {
+                                email.isEmpty() -> {
+                                    emailInput.error = resources.getString(R.string.emptymail)
+                                }
+                                !email.contains('@') -> {
+                                    emailInput.error = resources.getString(R.string.errormail)
+                                }
+                                pass.isEmpty() -> {
+                                    passInput.error = resources.getString(R.string.emptypass)
+                                }
+                                pass.length < 6 -> {
+                                    passInput.error = resources.getString(R.string.errorpass)
+                                }
+                                else -> { login(email, pass)}
+                            }
+                    } }
+                )
             }
         }
     }
@@ -88,8 +98,8 @@ class LoginActivity : AppCompatActivity() {
                         }
                         is Result.Success -> {
                             cancel()
-                                val i = Intent(this@LoginActivity, MainActivity::class.java)
-                                viewModel.saveUserData(result.data?.value)
+                                val i = Intent(this@LoginActivity, ProgressOne::class.java)
+                                viewModel.saveUserData(result.data)
                                 Toast.makeText(this@LoginActivity, resources.getString(R.string.successlog), Toast.LENGTH_SHORT).show()
                                 startActivity(i)
                         }

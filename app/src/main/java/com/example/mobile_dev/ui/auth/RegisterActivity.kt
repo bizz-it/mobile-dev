@@ -8,8 +8,10 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mobile_dev.R
+import com.example.mobile_dev.compose.theme.MobiledevTheme
 import com.example.mobile_dev.data.Result
 import com.example.mobile_dev.databinding.ActivityRegisterBinding
+import com.example.mobile_dev.ui.ButtonApp
 
 
 class RegisterActivity : AppCompatActivity() {
@@ -32,43 +34,48 @@ class RegisterActivity : AppCompatActivity() {
             startActivity(i)
         }
 
-        binding.apply{
-            btnRegist.setOnClickListener{
-                val name = nameInput.text.toString()
-                val email = emailInput.text.toString()
-                val telf = telfInput.text.toString()
-                val pass = passInput.text.toString()
-                val secPass = secPassInput.text.toString()
-                when {
-                    name.isEmpty() -> {
-                        nameInput.error = resources.getString(R.string.emptyname)
-                    }
-                    email.isEmpty() -> {
-                        emailInput.error = resources.getString(R.string.emptymail)
-                    }
-                    pass.isEmpty() -> {
-                        passInput.error = resources.getString(R.string.emptypass)
-                    }
-                    pass.length < 6 -> {
-                        passInput.error = resources.getString(R.string.errorpass)
-                    }
-                    !email.contains('@') -> {
-                        emailInput.error = resources.getString(R.string.errormail)
-                    }
-                    telf.isEmpty() -> {
-                        telfInput.error = resources.getString(R.string.emptytelf)
-                    }
-                    secPass.isEmpty() -> {
-                        secPassInput.error = resources.getString(R.string.emptypass)
-                    }
-                    secPass != (pass) -> {
-                        secPassInput.error = resources.getString(R.string.errorsecpass)
-                    }
-                    !checkbox.isChecked -> {
-                        Toast.makeText(this@RegisterActivity, R.string.check, Toast.LENGTH_SHORT).show()
-                    }
-                    else -> { register(name, email, pass, telf) }
-                }
+        binding.btnRegist.setContent {
+            MobiledevTheme {
+                ButtonApp(
+                    getString(R.string.regist),
+                    onClick = { binding.apply{
+                            val name = nameInput.text.toString()
+                            val email = emailInput.text.toString()
+                            val telf = telfInput.text.toString()
+                            val pass = passInput.text.toString()
+                            val secPass = secPassInput.text.toString()
+                            when {
+                                name.isEmpty() -> {
+                                    nameInput.error = resources.getString(R.string.emptyname)
+                                }
+                                email.isEmpty() -> {
+                                    emailInput.error = resources.getString(R.string.emptymail)
+                                }
+                                pass.isEmpty() -> {
+                                    passInput.error = resources.getString(R.string.emptypass)
+                                }
+                                pass.length < 6 -> {
+                                    passInput.error = resources.getString(R.string.errorpass)
+                                }
+                                !email.contains('@') -> {
+                                    emailInput.error = resources.getString(R.string.errormail)
+                                }
+                                telf.isEmpty() -> {
+                                    telfInput.error = resources.getString(R.string.emptytelf)
+                                }
+                                secPass.isEmpty() -> {
+                                    secPassInput.error = resources.getString(R.string.emptypass)
+                                }
+                                secPass != (pass) -> {
+                                    secPassInput.error = resources.getString(R.string.errorsecpass)
+                                }
+                                !checkbox.isChecked -> {
+                                    Toast.makeText(this@RegisterActivity, R.string.check, Toast.LENGTH_SHORT).show()
+                                }
+                                else -> { register(name, email, pass, telf) }
+                            }
+                    } }
+                )
             }
         }
     }
