@@ -1,32 +1,26 @@
 package com.example.mobile_dev.ui.auth
 
-import android.animation.AnimatorSet
-import android.animation.ObjectAnimator
 import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import com.example.mobile_dev.data.Result
 import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.core.app.ActivityOptionsCompat
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.ViewModelProvider
-import com.example.mobile_dev.MainActivity
 import com.example.mobile_dev.R
 import com.example.mobile_dev.SettingFactory
 import com.example.mobile_dev.SettingViewModel
 import com.example.mobile_dev.UserPreferences
-import com.example.mobile_dev.compose.theme.MobiledevTheme
 import com.example.mobile_dev.databinding.ActivityLoginBinding
 import com.example.mobile_dev.ui.ButtonApp
 import com.example.mobile_dev.ui.agreement.ProgressOne
-import com.example.mobile_dev.ui.agreement.TopBar
+import com.example.mobile_dev.ui.theme.MobiledevTheme
 import kotlin.system.exitProcess
 
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
