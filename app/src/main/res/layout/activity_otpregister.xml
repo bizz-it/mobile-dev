@@ -162,22 +162,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout3" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnLogin"
+    <androidx.compose.ui.platform.ComposeView
+        android:id="@+id/btnVerify"
         android:layout_width="340dp"
-        android:layout_height="62dp"
-        android:layout_marginTop="120dp"
-        android:backgroundTint="?colorPrimaryVariant"
-        android:fontFamily="@font/worksans_bold"
-        android:text="@string/verify"
-        android:textAllCaps="false"
-        android:textColor="?colorOnSecondary"
-        android:textSize="14sp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="132dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resend"
-        app:shapeAppearance="@style/ShapeAppearanceOverlay.TextInputLayout.Rounded" />
-
+        app:layout_constraintTop_toBottomOf="@+id/resend" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/loginGoogle"
@@ -192,7 +184,7 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin"
+        app:layout_constraintTop_toBottomOf="@+id/btnVerify"
         app:shapeAppearance="@style/ShapeAppearanceOverlay.TextInputLayout.Rounded"
         app:strokeColor="?colorPrimary"
         app:strokeWidth="2dp" />
