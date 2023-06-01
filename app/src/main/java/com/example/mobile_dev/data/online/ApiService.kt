@@ -1,7 +1,6 @@
 package com.example.mobile_dev.data.online
 
 import com.example.mobile_dev.data.response.AuthResponse
-import com.example.mobile_dev.data.response.RegistResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.http.*
