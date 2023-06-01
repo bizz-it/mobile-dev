@@ -41,8 +41,8 @@ class RegisterActivity : AppCompatActivity() {
                             val name = nameInput.text.toString()
                             val email = emailInput.text.toString()
                             val telf = telfInput.text.toString()
-                            val pass = passInput.text.toString()
-                            val secPass = secPassInput.text.toString()
+                            val password = passInput.text.toString()
+                            val secPassword = secPassInput.text.toString()
                             when {
                                 name.isEmpty() -> {
                                     nameInput.error = resources.getString(R.string.emptyname)
@@ -50,11 +50,13 @@ class RegisterActivity : AppCompatActivity() {
                                 email.isEmpty() -> {
                                     emailInput.error = resources.getString(R.string.emptymail)
                                 }
-                                pass.isEmpty() -> {
-                                    passInput.error = resources.getString(R.string.emptypass)
+                                password.isEmpty() -> {
+                                    pass.error = resources.getString(R.string.emptypass)
+                                    pass.errorIconDrawable = null
                                 }
-                                pass.length < 6 -> {
-                                    passInput.error = resources.getString(R.string.errorpass)
+                                password.length < 6 -> {
+                                    pass.error = resources.getString(R.string.errorpass)
+                                    pass.errorIconDrawable = null
                                 }
                                 !email.contains('@') -> {
                                     emailInput.error = resources.getString(R.string.errormail)
@@ -62,16 +64,18 @@ class RegisterActivity : AppCompatActivity() {
                                 telf.isEmpty() -> {
                                     telfInput.error = resources.getString(R.string.emptytelf)
                                 }
-                                secPass.isEmpty() -> {
-                                    secPassInput.error = resources.getString(R.string.emptypass)
+                                secPassword.isEmpty() -> {
+                                    secPass.error = resources.getString(R.string.emptypass)
+                                    secPass.errorIconDrawable = null
                                 }
-                                secPass != (pass) -> {
+                                secPassword != (password) -> {
                                     secPassInput.error = resources.getString(R.string.errorsecpass)
+                                    secPass.errorIconDrawable = null
                                 }
                                 !checkbox.isChecked -> {
                                     Toast.makeText(this@RegisterActivity, R.string.check, Toast.LENGTH_SHORT).show()
                                 }
-                                else -> { register(name, email, pass, telf) }
+                                else -> { register(name, email, password, telf) }
                             }
                     } }
                 )

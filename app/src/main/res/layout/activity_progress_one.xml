@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context=".ui.agreement.ProgressOne">
+
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -252,7 +253,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:layout_width="108dp"
-            android:layout_height="48dp"
+            android:layout_height="44dp"
             android:layout_marginEnd="16dp"
             android:fontFamily="@font/worksans_bold"
             android:text="GPS Point"
@@ -356,6 +357,16 @@
         app:layout_constraintTop_toBottomOf="@+id/price" />
 
     <androidx.compose.ui.platform.ComposeView
+        android:id="@+id/radiogroup"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:paddingBottom="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/priceDetail" />
+
+    <androidx.compose.ui.platform.ComposeView
         android:id="@+id/nextBtn"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
@@ -363,7 +374,7 @@
         android:paddingBottom="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/priceDetail" />
+        app:layout_constraintTop_toBottomOf="@+id/radiogroup" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

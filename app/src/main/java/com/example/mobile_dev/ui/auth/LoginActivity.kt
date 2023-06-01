@@ -4,11 +4,10 @@ import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.graphics.drawable.ColorDrawable
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.mobile_dev.data.Result
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
@@ -17,9 +16,10 @@ import com.example.mobile_dev.R
 import com.example.mobile_dev.SettingFactory
 import com.example.mobile_dev.SettingViewModel
 import com.example.mobile_dev.UserPreferences
+import com.example.mobile_dev.data.Result
 import com.example.mobile_dev.databinding.ActivityLoginBinding
-import com.example.mobile_dev.ui.component.ButtonApp
 import com.example.mobile_dev.ui.agreement.ProgressOne
+import com.example.mobile_dev.ui.component.ButtonApp
 import com.example.mobile_dev.ui.theme.MobiledevTheme
 import kotlin.system.exitProcess
 
@@ -50,7 +50,7 @@ class LoginActivity : AppCompatActivity() {
                     getString(R.string.login),
                     onClick = { binding.apply {
                             val email = emailInput.text.toString()
-                            val pass = passInput.text.toString()
+                            val password = passInput.text.toString()
                             when {
                                 email.isEmpty() -> {
                                     emailInput.error = resources.getString(R.string.emptymail)
@@ -58,13 +58,15 @@ class LoginActivity : AppCompatActivity() {
                                 !email.contains('@') -> {
                                     emailInput.error = resources.getString(R.string.errormail)
                                 }
-                                pass.isEmpty() -> {
-                                    passInput.error = resources.getString(R.string.emptypass)
+                                password.isEmpty() -> {
+                                    pass.error = resources.getString(R.string.emptypass)
+                                    pass.errorIconDrawable = null
                                 }
-                                pass.length < 6 -> {
+                                password.length < 6 -> {
                                     passInput.error = resources.getString(R.string.errorpass)
+                                    pass.errorIconDrawable = null
                                 }
-                                else -> { login(email, pass)}
+                                else -> { login(email, password)}
                             }
                     } }
                 )
