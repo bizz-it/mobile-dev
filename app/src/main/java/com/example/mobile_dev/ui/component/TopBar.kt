@@ -1,4 +1,4 @@
-package com.example.mobile_dev.ui.agreement
+package com.example.mobile_dev.ui.component
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row

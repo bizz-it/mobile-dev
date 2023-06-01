@@ -1,14 +1,14 @@
 package com.example.mobile_dev
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.mobile_dev.data.response.AuthResponse
 import com.example.mobile_dev.data.response.UserResponse
-import com.example.mobile_dev.data.response.Value
+import com.example.mobile_dev.ui.screen.home.HomeViewModel
+
 import kotlinx.coroutines.launch
 
 class SettingViewModel (private val pref: UserPreferences) : ViewModel() {
@@ -34,6 +34,9 @@ class SettingFactory (private val pref: UserPreferences) : ViewModelProvider.Fac
         if (modelClass.isAssignableFrom(SettingViewModel::class.java)) {
             return SettingViewModel(pref) as T
         }
+//        else if (modelClass.isAssignableFrom(HomeViewModel::class.java)) {
+//            return HomeViewModel(pref) as T
+//        }
         throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
     }
 }

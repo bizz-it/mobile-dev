@@ -81,4 +81,14 @@
     <string name="photocheckdetail">Date of Birth</string>
     <string name="idcheck">ID Card Checker</string>
     <string name="idcheckdetail">To continue, take a picture of your official ID Card. Please make sure the photo is not blur and according to photo guideline.</string>
+
+    <!--    Category Text-->
+    <string name="category_fnb">F&amp;B</string>
+    <string name="category_retail">Retail</string>
+    <string name="category_education">Education</string>
+
+    <!--    Home Screen Text-->
+    <string name="section_live_track">Track you’re last request progress</string>
+    <string name="section_category">Franchise you’re interested in</string>
+    <string name="section_trending_franchises">Trending Franchise</string>
 </resources>

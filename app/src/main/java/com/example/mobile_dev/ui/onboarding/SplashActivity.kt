@@ -26,7 +26,6 @@ class SplashActivity :  AppCompatActivity() {
         mainViewModel.getUserData().observe(this) {
             isLogin = it.token.isEmpty()
         }
-
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
         binding = ActivitySplashBinding.inflate(layoutInflater)

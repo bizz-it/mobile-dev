@@ -5,7 +5,7 @@ import android.os.Bundle
 import com.example.mobile_dev.R
 import com.example.mobile_dev.databinding.ActivityDetailBinding
 import com.example.mobile_dev.ui.ButtonApp
-import com.example.mobile_dev.ui.agreement.TopBar
+import com.example.mobile_dev.ui.component.TopBar
 import com.example.mobile_dev.ui.theme.MobiledevTheme
 
 class DetailActivity : AppCompatActivity() {
