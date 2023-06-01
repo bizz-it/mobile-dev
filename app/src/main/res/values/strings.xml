@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">BIZZ.IT</string>
+    <string name="permit">Cannot get permission</string>
+    <string name="camera">Camera</string>
 
     <!--    Auth Screen Text-->
     <string name="successlog">Login has been successful</string>
@@ -72,13 +74,17 @@
     <string name="locationphoto">Location Photo</string>
     <string name="locationdetail">Please provide photo of place/spot for franchise</string>
     <string name="price">Price</string>
+    <string name="submit">Submit</string>
     <string name="pricedetail">Please choose which package/price you want</string>
     <string name="date">Date of Birth</string>
+    <string name="next">Next</string>
+    <string name="take">Start Take a Photo</string>
+    <string name="add">Add Picture</string>
     <string name="place">Place of Birth</string>
     <string name="location">Enter your location</string>
     <string name="guideline">Check Photo Guideline</string>
-    <string name="photocheck">Please choose which package/price you want</string>
-    <string name="photocheckdetail">Date of Birth</string>
+    <string name="photocheck">Face Photo Checker</string>
+    <string name="photocheckdetail">To continue, take a picture of your face. Please make sure the photo is not blur and according to photo guideline.</string>
     <string name="idcheck">ID Card Checker</string>
     <string name="idcheckdetail">To continue, take a picture of your official ID Card. Please make sure the photo is not blur and according to photo guideline.</string>
 

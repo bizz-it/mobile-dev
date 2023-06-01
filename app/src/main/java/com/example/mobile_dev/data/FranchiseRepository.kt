@@ -1,14 +1,14 @@
 package com.example.mobile_dev.data
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.liveData
 import androidx.lifecycle.map
 import com.example.mobile_dev.data.online.ApiService
 import com.example.mobile_dev.data.response.AuthResponse
-import com.example.mobile_dev.data.Result
+import com.google.gson.Gson
 import retrofit2.HttpException
+import java.io.IOException
 
 class FranchiseRepository private constructor(private val apiService: ApiService){
     private val _response = MutableLiveData<AuthResponse?>()
@@ -19,10 +19,20 @@ class FranchiseRepository private constructor(private val apiService: ApiService
         try {
             val response = apiService.postLogin(email, pass)
             _response.value = response
-
-        } catch (e: Exception) {
-            Log.d("StoryRepository", "${e.message.toString()} ")
-            emit(Result.Error( "${e.message.toString()} "))
+        } catch (t: Throwable) {
+            when (t) {
+                is HttpException -> {
+                    val responseBody = Gson().fromJson(
+                        t.response()?.errorBody()?.charStream(),
+                        AuthResponse::class.java
+                    )
+                    emit(Result.Error("${responseBody.message}"))
+                }
+                is IOException -> {
+                    emit(Result.Error(error))
+                }
+                else -> emit(Result.Error(t.message.toString()))
+            }
         }
         val localData: LiveData<Result<AuthResponse?>> = response.map { Result.Success(it) }
         emitSource(localData)
@@ -33,9 +43,20 @@ class FranchiseRepository private constructor(private val apiService: ApiService
         try {
             val response = apiService.postRegister(nama, email, pass, no_telp)
             _response.value = response
-        } catch (e: Exception) {
-            Log.d("StoryRepository", "${e.localizedMessage} ")
-            emit(Result.Error( "${e.localizedMessage} "))
+        } catch (t: Throwable) {
+            when (t) {
+                is HttpException -> {
+                    val responseBody = Gson().fromJson(
+                        t.response()?.errorBody()?.charStream(),
+                        AuthResponse::class.java
+                    )
+                    emit(Result.Error("${responseBody.message}"))
+                }
+                is IOException -> {
+                    emit(Result.Error(error))
+                }
+                else -> emit(Result.Error(t.message.toString()))
+            }
         }
         val localData: LiveData<Result<AuthResponse?>> = response.map { Result.Success(it) }
         emitSource(localData)
@@ -45,6 +66,7 @@ class FranchiseRepository private constructor(private val apiService: ApiService
     companion object {
         @Volatile
         private var instance: FranchiseRepository? = null
+        private var error: String = "Can't connect to server"
         fun getInstance(
             apiService: ApiService
         ): FranchiseRepository =
