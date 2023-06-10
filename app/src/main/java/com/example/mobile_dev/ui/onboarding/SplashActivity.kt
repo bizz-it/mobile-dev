@@ -1,20 +1,20 @@
 package com.example.mobile_dev.ui.onboarding
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityOptionsCompat
 import androidx.lifecycle.ViewModelProvider
-import com.example.mobile_dev.MainActivity
 import com.example.mobile_dev.R
 import com.example.mobile_dev.SettingFactory
 import com.example.mobile_dev.SettingViewModel
 import com.example.mobile_dev.UserPreferences
 import com.example.mobile_dev.databinding.ActivitySplashBinding
-import com.example.mobile_dev.ui.auth.LoginActivity
+import com.example.mobile_dev.ui.agreement.ProgressOne
 import com.example.mobile_dev.ui.auth.dataStore
-import com.example.mobile_dev.ui.detail.DetailActivity
+
 
 class SplashActivity :  AppCompatActivity() {
     private lateinit var binding: ActivitySplashBinding
@@ -32,12 +32,16 @@ class SplashActivity :  AppCompatActivity() {
         binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
         Handler(Looper.getMainLooper()).postDelayed({
-            if (isLogin) {
-                val intent = Intent(this@SplashActivity, DetailActivity::class.java)
+            if (!isLogin) {
+                val intent = Intent(this@SplashActivity, ProgressOne::class.java)
                 startActivity(intent)
             } else {
-                val intent = Intent(this@SplashActivity, LoginActivity::class.java)
-                startActivity(intent)
+                val bundle = ActivityOptionsCompat.makeCustomAnimation(
+                    this@SplashActivity,
+                    R.anim.fade_in, R.anim.fade_out
+                ).toBundle()
+                val intent = Intent(this@SplashActivity, OnBoardingActivity::class.java)
+                startActivity(intent, bundle)
             }
             finish()
         }, DURATION)
