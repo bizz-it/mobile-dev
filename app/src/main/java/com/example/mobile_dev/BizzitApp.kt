@@ -27,7 +27,6 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.mobile_dev.ui.navigation.NavigationItem
 import com.example.mobile_dev.ui.navigation.Screen
-import com.example.mobile_dev.ui.screen.home.HomeScreen
 import com.example.mobile_dev.ui.theme.MobiledevTheme
 
 @Composable
@@ -53,13 +52,7 @@ fun BizzitApp(
             modifier = Modifier.padding(innerPadding)
         ) {
             composable(Screen.Home.route) {
-//                context.startActivity(Intent(context, HomeScreen::class.java))
-//                HomeScreen(
-//                    navigateToDetail = { rewardId ->
-//                        navController.navigate(Screen.DetailReward.createRoute(rewardId))
-//                    }
-//                )
-                HomeScreen()
+                context.startActivity(Intent(context, MainActivity::class.java))
             }
             composable(Screen.History.route) {
                 // History

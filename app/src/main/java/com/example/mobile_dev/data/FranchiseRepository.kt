@@ -9,7 +9,6 @@ import com.example.mobile_dev.data.response.AuthResponse
 import com.google.gson.Gson
 import retrofit2.HttpException
 import java.io.IOException
-
 class FranchiseRepository private constructor(private val apiService: ApiService){
     private val _response = MutableLiveData<AuthResponse?>()
     private val response: LiveData<AuthResponse?> = _response
