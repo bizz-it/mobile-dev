@@ -2,7 +2,10 @@ package com.example.mobile_dev.ui.component
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -17,6 +20,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.mobile_dev.R
 import com.example.mobile_dev.ui.theme.LightBlue
 import com.example.mobile_dev.ui.theme.MobiledevTheme
@@ -29,24 +33,27 @@ fun SearchBar(
         value = "",
         onValueChange = {},
         leadingIcon = {
-            Icon(
+            androidx.compose.material.Icon(
                 imageVector = Icons.Default.Search,
                 contentDescription = null
             )
         },
         colors = TextFieldDefaults.textFieldColors(
-            backgroundColor = MaterialTheme.colors.surface,
+            backgroundColor = androidx.compose.material.MaterialTheme.colors.surface,
             disabledIndicatorColor = Color.Transparent,
             focusedIndicatorColor = Color.Transparent,
             unfocusedIndicatorColor = Color.Transparent,
         ),
         placeholder = {
-            Text(stringResource(R.string.placeholder_search))
+            androidx.compose.material.Text(
+                stringResource(R.string.placeholder_search),
+                fontSize = 12.sp
+            )
         },
         modifier = modifier
-            .fillMaxWidth()
-            .heightIn(min = 36.dp)
             .border(2.dp, LightBlue, RoundedCornerShape(16.dp))
+            .width(246.dp)
+            .height(48.dp)
     )
 }
 
