@@ -1,31 +1,28 @@
-package com.example.mobile_dev.ui.agreement
+package com.example.mobile_dev.ui.franchisor
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.mobile_dev.R
-import com.example.mobile_dev.databinding.ActivityProgressTwoBinding
+import com.example.mobile_dev.databinding.ActivityFranchisorThreeBinding
 import com.example.mobile_dev.ui.component.ButtonApp
 import com.example.mobile_dev.ui.component.TopBar
 import com.example.mobile_dev.ui.theme.MobiledevTheme
 
-class ProgressTwo : AppCompatActivity() {
+class FranchisorThree : AppCompatActivity() {
 
-    private lateinit var binding: ActivityProgressTwoBinding
+    private lateinit var binding: ActivityFranchisorThreeBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityProgressTwoBinding.inflate(layoutInflater)
+        binding = ActivityFranchisorThreeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.composeView.setContent {
             MobiledevTheme {
                 TopBar(
                     true,
-                    getString(R.string.agreement),
-                    onClick = {
-                        val i = Intent(this@ProgressTwo, ProgressOne::class.java)
-                        startActivity(i)
-                    }
+                    getString(R.string.franchise_information),
+                    onClick = { finish() }
                 )
             }
         }
@@ -34,10 +31,7 @@ class ProgressTwo : AppCompatActivity() {
             MobiledevTheme {
                 ButtonApp(
                     getString(R.string.next),
-                    onClick = {
-                        val i = Intent(this@ProgressTwo, ProgressThree::class.java)
-                        startActivity(i)
-                    }
+                    onClick = { finish() }
                 )
             }
         }

@@ -17,7 +17,9 @@
     <queries>
         <intent>
             <action android:name="android.intent.action.VIEW" />
+
             <category android:name="android.intent.category.BROWSABLE" />
+
             <data android:scheme="https" />
         </intent>
     </queries>
@@ -32,6 +34,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Mobiledev"
         tools:targetApi="31">
+        <activity
+            android:name=".ui.screen.education.ClassActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.franchisor.FranchisorThree"
+            android:exported="false" />
+        <activity
+            android:name=".ui.franchisor.FranchisorTwo"
+            android:exported="false" />
+        <activity
+            android:name=".ui.franchisor.FranchisorOne"
+            android:exported="false" />
+        <activity
+            android:name=".ui.franchisor.FranchisorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.screen.profile.ProfileActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.agreement.ProgressFour"
             android:exported="false" />
@@ -62,6 +82,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="franchise"
@@ -71,6 +92,7 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+
         <activity
             android:name=".ui.auth.RegisterActivity"
             android:exported="false" />

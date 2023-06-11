@@ -55,8 +55,8 @@ fun BizzitApp(
             composable(Screen.Home.route) {
 //                context.startActivity(Intent(context, HomeScreen::class.java))
 //                HomeScreen(
-//                    navigateToDetail = { rewardId ->
-//                        navController.navigate(Screen.DetailReward.createRoute(rewardId))
+//                    navigateToDetail = { franchiseId ->
+//                        navController.navigate(Screen.DetailReward.createRoute(franchiseId))
 //                    }
 //                )
                 HomeScreen()

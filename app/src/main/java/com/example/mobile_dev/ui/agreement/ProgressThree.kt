@@ -81,6 +81,7 @@ class ProgressThree : AppCompatActivity() {
             composeView.setContent {
                 MobiledevTheme {
                     TopBar(
+                        true,
                         getString(R.string.agreement),
                         onClick = {
                             val i = Intent(this@ProgressThree, ProgressTwo::class.java)

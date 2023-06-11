@@ -1,35 +1,27 @@
-package com.example.mobile_dev.ui.detail
+package com.example.mobile_dev.ui.screen.profile
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.mobile_dev.R
-import com.example.mobile_dev.databinding.ActivityDetailBinding
+import com.example.mobile_dev.databinding.ActivityProfileBinding
 import com.example.mobile_dev.ui.component.ButtonApp
 import com.example.mobile_dev.ui.component.TopBar
 import com.example.mobile_dev.ui.theme.MobiledevTheme
 
-class DetailActivity : AppCompatActivity() {
+class ProfileActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityDetailBinding
+    private lateinit var binding: ActivityProfileBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityDetailBinding.inflate(layoutInflater)
+        binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.composeView.setContent {
             MobiledevTheme {
                 TopBar(
-                    true,
-                    getString(R.string.detail),
-                    onClick = { finish() }
-                )
-            }
-        }
-
-        binding.composeButton.setContent {
-            MobiledevTheme {
-                ButtonApp(
-                    getString(R.string.agreement),
+                    false,
+                    getString(R.string.menu_profile),
                     onClick = { finish() }
                 )
             }

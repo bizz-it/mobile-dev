@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".ui.franchisor.FranchisorOne">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        tools:context=".ui.franchisor.FranchisorOne">
+
+        <androidx.compose.ui.platform.ComposeView
+            android:id="@+id/composeView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/grey"
+            android:elevation="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/composeView" />
+
+        <LinearLayout
+            android:id="@+id/progress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/composeView">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/shapeableImageView1"
+                android:layout_width="72dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/progress1" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/shapeableImageView2"
+                android:layout_width="72dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:background="@drawable/progress2" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/shapeableImageView3"
+                android:layout_width="72dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:background="@drawable/progress2" />
+
+        </LinearLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/profile"
+            android:layout_width="350dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:fontFamily="@font/worksans_bold"
+            android:text="@string/franchiseprofile"
+            android:textColor="?colorSecondary"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/progress" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/profiledetail"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:fontFamily="@font/worksans_regular"
+            android:text="@string/franchisedetail"
+            android:textColor="?colorOnPrimary"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profile" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/franchiseCategory"
+            style="@style/LoginTextInputLayoutStyle"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/worksans_regular"
+            android:hint="@string/franchise_category"
+            android:textColorHint="?colorPrimary"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profiledetail"
+            app:shapeAppearance="@style/ShapeAppearanceOverlay.TextInputLayout.Rounded">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/franchiseCategoryInput"
+                android:layout_width="350dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:inputType="textAutoComplete"
+                android:saveEnabled="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/franchiseName"
+            style="@style/LoginTextInputLayoutStyle"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/worksans_regular"
+            android:hint="@string/franchise_name"
+            android:textColorHint="?colorPrimary"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/franchiseCategory"
+            app:shapeAppearance="@style/ShapeAppearanceOverlay.TextInputLayout.Rounded">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/franchiseNameInput"
+                android:layout_width="350dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:inputType="textAutoComplete"
+                android:saveEnabled="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/name"
+            style="@style/LoginTextInputLayoutStyle"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/worksans_regular"
+            android:hint="@string/name"
+            android:textColorHint="?colorPrimary"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/franchiseName"
+            app:shapeAppearance="@style/ShapeAppearanceOverlay.TextInputLayout.Rounded">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nameInput"
+                android:layout_width="350dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:inputType="textAutoComplete"
+                android:saveEnabled="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/email"
+            style="@style/LoginTextInputLayoutStyle"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/worksans_regular"
+            android:hint="@string/email"
+            android:textColorHint="?colorPrimary"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name"
+            app:shapeAppearance="@style/ShapeAppearanceOverlay.TextInputLayout.Rounded">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailInput"
+                android:layout_width="350dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:inputType="textAutoComplete"
+                android:saveEnabled="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/telf"
+            style="@style/LoginTextInputLayoutStyle"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/worksans_regular"
+            android:hint="@string/telf"
+            android:textColorHint="?colorPrimary"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/email"
+            app:shapeAppearance="@style/ShapeAppearanceOverlay.TextInputLayout.Rounded">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/telfInput"
+                android:layout_width="350dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:inputType="textAutoComplete"
+                android:saveEnabled="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/logo"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/telf">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout5"
+                style="@style/LoginTextInputLayoutStyle"
+                android:layout_width="350dp"
+                android:layout_height="60dp"
+                android:layout_marginBottom="2dp"
+                android:fontFamily="@font/worksans_regular"
+                android:hint="@string/franchise_logo"
+                android:textColorHint="?colorPrimary"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearance="@style/ShapeAppearanceOverlay.TextInputLayout.Rounded">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/logoInput"
+                    android:layout_width="350dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="start"
+                    android:layout_marginBottom="2dp"
+                    android:inputType="textAutoComplete"
+                    android:saveEnabled="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="145dp"
+                android:layout_height="44dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/worksans_bold"
+                android:text="@string/choose_picture"
+                android:textAllCaps="false"
+                android:textColor="?colorOnSecondary"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/photo"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/logo">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout6"
+                style="@style/LoginTextInputLayoutStyle"
+                android:layout_width="350dp"
+                android:layout_height="60dp"
+                android:layout_marginBottom="2dp"
+                android:fontFamily="@font/worksans_regular"
+                android:hint="@string/franchise_photo"
+                android:textColorHint="?colorPrimary"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearance="@style/ShapeAppearanceOverlay.TextInputLayout.Rounded">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/photoInput"
+                    android:layout_width="350dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="start"
+                    android:layout_marginBottom="2dp"
+                    android:inputType="textAutoComplete"
+                    android:saveEnabled="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="145dp"
+                android:layout_height="44dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/worksans_bold"
+                android:text="@string/choose_picture"
+                android:textAllCaps="false"
+                android:textColor="?colorOnSecondary"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/desc_franchise_business"
+            style="@style/LoginTextInputLayoutStyle"
+            android:layout_width="350dp"
+            android:layout_height="140dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/worksans_regular"
+            android:hint="@string/desc_franchise_business"
+            android:textColorHint="?colorPrimary"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/photo"
+            app:shapeAppearance="@style/ShapeAppearanceOverlay.TextInputLayout.Rounded">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/descFranchisebusinessInput"
+                android:layout_width="350dp"
+                android:layout_height="match_parent"
+                android:gravity="top|start"
+                android:inputType="textAutoComplete"
+                android:saveEnabled="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.compose.ui.platform.ComposeView
+            android:id="@+id/nextBtn"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:paddingBottom="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/desc_franchise_business" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
