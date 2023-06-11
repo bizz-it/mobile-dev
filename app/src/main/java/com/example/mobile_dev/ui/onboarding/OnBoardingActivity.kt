@@ -41,5 +41,4 @@ class OnBoardingActivity : AppCompatActivity() {
         }
         supportActionBar?.hide()
     }
-
 }

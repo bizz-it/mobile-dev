@@ -27,6 +27,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.mobile_dev.ui.navigation.NavigationItem
 import com.example.mobile_dev.ui.navigation.Screen
+import com.example.mobile_dev.ui.screen.home.HomeScreen
 import com.example.mobile_dev.ui.theme.MobiledevTheme
 
 @Composable
