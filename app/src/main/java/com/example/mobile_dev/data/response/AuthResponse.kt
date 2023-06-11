@@ -1,7 +1,6 @@
 package com.example.mobile_dev.data.response
 
 import com.google.gson.annotations.SerializedName
-
 data class AuthResponse(
 
 	@field:SerializedName("data")

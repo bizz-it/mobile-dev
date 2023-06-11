@@ -21,7 +21,6 @@ import com.example.mobile_dev.databinding.ActivityLoginBinding
 import com.example.mobile_dev.ui.agreement.ProgressOne
 import com.example.mobile_dev.ui.component.ButtonApp
 import com.example.mobile_dev.ui.theme.MobiledevTheme
-import kotlin.system.exitProcess
 
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 class LoginActivity : AppCompatActivity() {
@@ -121,10 +120,9 @@ class LoginActivity : AppCompatActivity() {
 //        }
 //    }
 
-    @Deprecated("Deprecated in Java")
-    override fun onBackPressed() {
+    override fun onSupportNavigateUp(): Boolean {
         finish()
-        exitProcess(0)
+        return true
     }
 
     override fun finish() {

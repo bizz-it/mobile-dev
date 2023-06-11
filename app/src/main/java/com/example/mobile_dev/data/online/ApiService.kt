@@ -1,8 +1,6 @@
 package com.example.mobile_dev.data.online
 
 import com.example.mobile_dev.data.response.AuthResponse
-import okhttp3.MultipartBody
-import okhttp3.RequestBody
 import retrofit2.http.*
 
 interface ApiService {

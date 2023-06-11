@@ -53,13 +53,7 @@ fun BizzitApp(
             modifier = Modifier.padding(innerPadding)
         ) {
             composable(Screen.Home.route) {
-//                context.startActivity(Intent(context, HomeScreen::class.java))
-//                HomeScreen(
-//                    navigateToDetail = { franchiseId ->
-//                        navController.navigate(Screen.DetailReward.createRoute(franchiseId))
-//                    }
-//                )
-                HomeScreen()
+                context.startActivity(Intent(context, MainActivity::class.java))
             }
             composable(Screen.History.route) {
                 // History

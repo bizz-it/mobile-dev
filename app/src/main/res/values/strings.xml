@@ -2,6 +2,7 @@
     <string name="app_name">BIZZ.IT</string>
     <string name="permit">Cannot get permission</string>
     <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
 
     <!--    Auth Screen Text-->
     <string name="successlog">Login has been successful</string>

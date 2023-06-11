@@ -1,14 +1,14 @@
 package com.example.mobile_dev
 
 import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
-import androidx.datastore.preferences.core.Preferences
 import com.example.mobile_dev.data.response.AuthResponse
+import com.example.mobile_dev.data.response.UserResponse
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import com.example.mobile_dev.data.response.UserResponse
 
 class UserPreferences private constructor(private val dataStore: DataStore<Preferences>) {
 
@@ -16,7 +16,13 @@ class UserPreferences private constructor(private val dataStore: DataStore<Prefe
         return dataStore.data.map { preferences ->
             UserResponse(preferences[TOKEN] ?: "",
                 preferences[STATUS] ?: false,
-                preferences[USERID] ?: "")
+                preferences[USERID] ?: "",
+                preferences[NAME] ?: "",
+                preferences[FOTO] ?: "",
+                preferences[PLACE] ?: "",
+                preferences[TELF] ?: "",
+                preferences[EMAIL] ?: "",
+                preferences[DATE] ?: "",)
         }
     }
 
@@ -25,6 +31,12 @@ class UserPreferences private constructor(private val dataStore: DataStore<Prefe
             preferences[TOKEN] = user?.token.toString()
             preferences[STATUS] = user?.value?.isVerified as Boolean
             preferences[USERID] = user.value.id.toString()
+            preferences[NAME] = user.value.nama.toString()
+            preferences[FOTO] = user.value.foto.toString()
+            preferences[PLACE] = user.value.tempatLahir.toString()
+            preferences[TELF] = user.value.noTelp.toString()
+            preferences[EMAIL] = user.value.email.toString()
+            preferences[DATE] = user.value.tempatLahir.toString()
         }
     }
 

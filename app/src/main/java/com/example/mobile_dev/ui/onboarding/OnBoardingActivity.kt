@@ -1,18 +1,32 @@
 package com.example.mobile_dev.ui.onboarding
 
+import android.content.Intent
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowInsets
 import android.view.WindowManager
-import com.example.mobile_dev.R
+import androidx.appcompat.app.AppCompatActivity
+import com.example.mobile_dev.databinding.ActivityOnBoardingBinding
+import com.example.mobile_dev.ui.auth.LoginActivity
+import com.example.mobile_dev.ui.auth.RegisterActivity
 
 class OnBoardingActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityOnBoardingBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_on_boarding)
-
+        binding = ActivityOnBoardingBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         setupView()
+
+        binding.buttonLogin.setOnClickListener {
+            val intent = Intent(this@OnBoardingActivity, LoginActivity::class.java)
+            startActivity(intent)
+        }
+        binding.buttonRegister.setOnClickListener {
+            val intent = Intent(this@OnBoardingActivity, RegisterActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun setupView() {

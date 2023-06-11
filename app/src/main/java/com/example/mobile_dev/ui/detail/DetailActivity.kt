@@ -1,9 +1,11 @@
 package com.example.mobile_dev.ui.detail
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.mobile_dev.R
 import com.example.mobile_dev.databinding.ActivityDetailBinding
+import com.example.mobile_dev.ui.agreement.ProgressOne
 import com.example.mobile_dev.ui.component.ButtonApp
 import com.example.mobile_dev.ui.component.TopBar
 import com.example.mobile_dev.ui.theme.MobiledevTheme
@@ -30,7 +32,10 @@ class DetailActivity : AppCompatActivity() {
             MobiledevTheme {
                 ButtonApp(
                     getString(R.string.agreement),
-                    onClick = { finish() }
+                    onClick = {
+                        val i = Intent(this@DetailActivity, ProgressOne::class.java)
+                        startActivity(i)
+                    }
                 )
             }
         }

@@ -1,8 +1,8 @@
 package com.example.mobile_dev.ui.agreement
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.mobile_dev.R
 import com.example.mobile_dev.databinding.ActivityProgressTwoBinding
 import com.example.mobile_dev.ui.component.ButtonApp
@@ -42,4 +42,5 @@ class ProgressTwo : AppCompatActivity() {
             }
         }
     }
+
 }
