@@ -28,25 +28,29 @@ import com.example.mobile_dev.ui.theme.MobiledevTheme
 
 @Composable
 fun TopBar(
+    isVisible: Boolean,
     title: String,
     modifier: Modifier = Modifier,
     onClick: () -> Unit,
 ) {
-    Box(modifier = modifier.fillMaxWidth()) {
-        Button(
-            onClick = onClick,
-            colors = ButtonDefaults.buttonColors(MaterialTheme.colorScheme.onPrimary),
-            modifier = modifier
-                .width(80.dp)
-                .height(64.dp)
-        ) {
-            Icon(
-                imageVector = Icons.Rounded.KeyboardArrowLeft,
-                modifier = modifier.size(32.dp),
-                contentDescription = null,
-                tint = MaterialTheme.colorScheme.tertiary,
-            )
+    if(isVisible) {
+        Box(modifier = modifier.fillMaxWidth()) {
+            Button(
+                onClick = onClick,
+                colors = ButtonDefaults.buttonColors(MaterialTheme.colorScheme.onPrimary),
+                modifier = modifier
+                    .width(80.dp)
+                    .height(64.dp)
+            ) {
+                Icon(
+                    imageVector = Icons.Rounded.KeyboardArrowLeft,
+                    modifier = modifier.size(32.dp),
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.tertiary,
+                )
+            }
         }
+    } else {
         Row(modifier.height(64.dp), verticalAlignment = Alignment.CenterVertically) {
             Text(
                 text = title,
@@ -70,6 +74,7 @@ fun TopBar(
 fun TopBarPreview() {
     MobiledevTheme() {
         TopBar(
+            true,
             title = "Agreement",
             onClick = {}
         )

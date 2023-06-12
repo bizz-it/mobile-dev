@@ -35,6 +35,7 @@ class ProgressTwo : AppCompatActivity() {
         binding.composeView.setContent {
             MobiledevTheme {
                 TopBar(
+                    true,
                     getString(R.string.agreement),
                     onClick = {
                         val i = Intent(this@ProgressTwo, ProgressOne::class.java)

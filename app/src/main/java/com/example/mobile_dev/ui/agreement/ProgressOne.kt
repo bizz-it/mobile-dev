@@ -109,7 +109,7 @@ class ProgressOne : AppCompatActivity() {
         binding.apply {
             composeView.setContent {
                 MobiledevTheme {
-                    TopBar(
+                    TopBar(true,
                         getString(com.example.mobile_dev.R.string.agreement),
                         onClick = {
                             val i = Intent(this@ProgressOne, DetailActivity::class.java)
