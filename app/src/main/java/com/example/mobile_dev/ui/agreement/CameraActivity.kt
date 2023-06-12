@@ -53,20 +53,6 @@ class CameraActivity : AppCompatActivity() {
         }
     }
 
-//    private fun flashLightOnRoOff() {
-//        /**set flash code*/
-//        if (!isFlash){
-//            val cameraListId = cameraM.cameraIdList[1]
-//            cameraM.setTorchMode(cameraListId,true)
-//            isFlash = true
-//        }
-//        else{
-//            val cameraListId = cameraM.cameraIdList[1]
-//            cameraM.setTorchMode(cameraListId,false)
-//            isFlash = false
-//        }
-//    }
-
     public override fun onResume() {
         super.onResume()
         hideSystemUI()

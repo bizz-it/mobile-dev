@@ -21,6 +21,7 @@ class DetailActivity : AppCompatActivity() {
         binding.composeView.setContent {
             MobiledevTheme {
                 TopBar(
+                    false,
                     getString(R.string.detail),
                     onClick = { finish() }
                 )
@@ -38,5 +39,14 @@ class DetailActivity : AppCompatActivity() {
                 )
             }
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return true
+    }
+    override fun finish() {
+        super.finish()
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
     }
 }

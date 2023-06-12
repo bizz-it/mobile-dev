@@ -26,7 +26,7 @@
         android:layout_marginTop="8dp"
         android:fontFamily="@font/worksans_bold"
         android:text="@string/sublogin"
-        android:textColor="@color/black"
+        android:textColor="?colorOnPrimary"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,14 +40,14 @@
         android:layout_marginTop="92dp"
         android:fontFamily="@font/worksans_regular"
         android:hint="@string/email"
-        android:textColorHint="?colorPrimary"
+        android:textColorHint="?colorTertiary"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/materialTextView2"
         app:shapeAppearance="@style/ShapeAppearanceOverlay.TextInputLayout.Rounded"
         app:startIconDrawable="@drawable/round_email_24"
-        app:startIconTint="?colorPrimary">
+        app:startIconTint="?colorTertiary">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/emailInput"
@@ -66,16 +66,16 @@
         android:layout_marginTop="12dp"
         android:fontFamily="@font/worksans_regular"
         android:hint="@string/pass"
-        android:textColorHint="?colorPrimary"
+        android:textColorHint="?colorTertiary"
         android:textSize="14sp"
         app:passwordToggleEnabled="true"
-        app:passwordToggleTint="@color/lightblue"
+        app:passwordToggleTint="?colorTertiary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email"
         app:shapeAppearance="@style/ShapeAppearanceOverlay.TextInputLayout.Rounded"
         app:startIconDrawable="@drawable/round_lock_24"
-        app:startIconTint="?colorPrimary">
+        app:startIconTint="?colorTertiary">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/passInput"
@@ -118,7 +118,7 @@
         android:fontFamily="@font/worksans_bold"
         android:text="@string/logGoogle"
         android:textAllCaps="false"
-        android:textColor="?colorPrimary"
+        android:textColor="?colorTertiary"
         android:textSize="14sp"
         app:icon="@drawable/icons8_google"
         app:iconGravity="start"
@@ -128,7 +128,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnLogin"
         app:shapeAppearance="@style/ShapeAppearanceOverlay.TextInputLayout.Rounded"
-        app:strokeColor="?colorPrimary"
+        app:strokeColor="?colorTertiary"
         app:strokeWidth="2dp" />
 
     <com.google.android.material.textview.MaterialTextView

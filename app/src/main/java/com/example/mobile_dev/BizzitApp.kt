@@ -12,6 +12,7 @@ import androidx.compose.material.icons.filled.Class
 import androidx.compose.material.icons.filled.History
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -79,7 +80,7 @@ private fun BottomBar(
     navController: NavHostController,
     modifier: Modifier = Modifier
 ) {
-    BottomNavigation(
+    BottomNavigation(backgroundColor = MaterialTheme.colorScheme.primary,
         modifier = modifier
     ) {
         val navBackStackEntry by navController.currentBackStackEntryAsState()
