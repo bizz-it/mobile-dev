@@ -188,6 +188,11 @@ class ProgressFour : AppCompatActivity() {
         return true
     }
 
+    override fun finish() {
+        super.finish()
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+    }
+
     companion object {
         const val id = "picture"
         const val camera = "isBackCamera"

@@ -1,12 +1,14 @@
 package com.example.mobile_dev.ui.agreement
 
 import android.Manifest
+import android.app.DatePickerDialog
 import android.app.Dialog
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.drawable.ColorDrawable
+import android.icu.text.SimpleDateFormat
 import android.location.Geocoder
 import android.net.Uri
 import android.os.Bundle
@@ -22,6 +24,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.lifecycle.ViewModelProvider
+import com.example.mobile_dev.R
 import com.example.mobile_dev.SettingFactory
 import com.example.mobile_dev.SettingViewModel
 import com.example.mobile_dev.UserPreferences
@@ -53,6 +56,7 @@ import com.itextpdf.layout.element.Table
 import com.itextpdf.layout.property.HorizontalAlignment
 import com.itextpdf.layout.property.TextAlignment
 import java.io.File
+import java.util.Calendar
 import java.util.Date
 import java.util.Locale
 import kotlin.random.Random
@@ -69,7 +73,8 @@ class ProgressOne : AppCompatActivity() {
     private val agreementViewModel: AgreementViewModel by viewModels {
         ViewModelFactory(this)
     }
-    var photo2: File? = null
+    private var photo2: File? = null
+    private val cal: Calendar = Calendar.getInstance()
 
     private val launcherIntentCamera = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
@@ -101,16 +106,17 @@ class ProgressOne : AppCompatActivity() {
         setContentView(binding.root)
         val pref = UserPreferences.getInstance(dataStore)
         viewModel = ViewModelProvider(this, SettingFactory(pref))[SettingViewModel::class.java]
-
+        val cal = Calendar.getInstance()
         if(!allPermissionsGranted()) {
             ActivityCompat.requestPermissions(this, REQUIRED_PERMISSION, REQUEST_CODE)
         }
+
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
         binding.apply {
             composeView.setContent {
                 MobiledevTheme {
                     TopBar(true,
-                        getString(com.example.mobile_dev.R.string.agreement),
+                        getString(R.string.agreement),
                         onClick = {
                             val i = Intent(this@ProgressOne, DetailActivity::class.java)
                             startActivity(i)
@@ -145,7 +151,7 @@ class ProgressOne : AppCompatActivity() {
             camBtn.setContent {
                 MobiledevTheme {
                     CamButton(
-                        getString(com.example.mobile_dev.R.string.add),
+                        getString(R.string.add),
                         onClick = {
                             addStory()
                         }
@@ -156,7 +162,7 @@ class ProgressOne : AppCompatActivity() {
             nextBtn.setContent {
                 MobiledevTheme {
                     ButtonApp(
-                        getString(com.example.mobile_dev.R.string.next),
+                        getString(R.string.next),
                         onClick = {
                             val email = emailInput.text.toString()
                             val name = nameInput.text.toString()
@@ -164,7 +170,6 @@ class ProgressOne : AppCompatActivity() {
                             val place = placeInput.text.toString()
                             val date = dateInput.text.toString()
                             val loc = locInput.text.toString()
-
                             if (email.isNotEmpty() && name.isNotEmpty() && telf.isNotEmpty() && place.isNotEmpty() && date.isNotEmpty() && loc.isNotEmpty() && photo2 != null) {
                                 if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) ==
                                     PackageManager.PERMISSION_DENIED
@@ -179,13 +184,9 @@ class ProgressOne : AppCompatActivity() {
                                     data.add(place)
                                     data.add(date)
                                     data.add(loc)
-
-                                            Toast.makeText(this@ProgressOne, "Please wadnformation first", Toast.LENGTH_SHORT).show()
-
-                                            createPdf(data, photo2)
-                                            val i = Intent(this@ProgressOne, ProgressTwo::class.java)
-                                            startActivity(i)
-
+                                    createPdf(data, photo2)
+                                    val i = Intent(this@ProgressOne, ProgressTwo::class.java)
+                                    startActivity(i)
                                 }
                             }
                             else {
@@ -194,6 +195,24 @@ class ProgressOne : AppCompatActivity() {
                         }
                     )
                 }
+            }
+
+            val dateSetListener =
+                DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
+                    cal.set(Calendar.YEAR, year)
+                    cal.set(Calendar.MONTH, monthOfYear)
+                    cal.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+                    updateDateInView()
+                }
+
+            datebtn.setOnClickListener {
+                DatePickerDialog(
+                    this@ProgressOne,
+                    dateSetListener,
+                    cal.get(Calendar.YEAR),
+                    cal.get(Calendar.MONTH),
+                    cal.get(Calendar.DAY_OF_MONTH)
+                ).show()
             }
 
             radiogroup.setContent {
@@ -225,6 +244,12 @@ class ProgressOne : AppCompatActivity() {
         }
     }
 
+    private fun updateDateInView() {
+        val myFormat = "MM/dd/yyyy" // mention the format you need
+        val sdf = SimpleDateFormat(myFormat, Locale.US)
+        binding.dateInput.setText(sdf.format(cal.time))
+    }
+
     private fun addStory() {
         dialog = Dialog(this)
         bindingDialog = DialogchooseBinding.inflate(layoutInflater)
@@ -249,7 +274,7 @@ class ProgressOne : AppCompatActivity() {
         val intent = Intent()
         intent.action = Intent.ACTION_GET_CONTENT
         intent.type = "image/*"
-        val chooser = Intent.createChooser(intent, resources.getString(com.example.mobile_dev.R.string.camera))
+        val chooser = Intent.createChooser(intent, resources.getString(R.string.camera))
         launcherIntentGallery.launch(chooser)
     }
 
@@ -320,7 +345,7 @@ class ProgressOne : AppCompatActivity() {
             .joinToString("")
         val date : String = DateFormat.format("dd-MMM-yyyy" , Date()) as String
         val title = Paragraph("SURAT PERJANJIAN WARALABA MIXUE").setBold().setFontSize(24f).setTextAlignment(TextAlignment.CENTER)
-        val nosurat = Paragraph("Nomor : " + randomStringByKotlinRandom() +"/"+ randomNumByKotlinRandom() +"/2023").setBold().setFontSize(18f).setTextAlignment(TextAlignment.CENTER)
+        val nosurat = Paragraph("Nomor : " + randomStringByKotlinRandom() +"/"+ randomNumByKotlinRandom() +"/2023").setFontSize(68f).setTextAlignment(TextAlignment.CENTER)
         val opening = Paragraph("Dengan hormat,").setFontSize(14f).setTextAlignment(TextAlignment.LEFT)
         val opening2 = Paragraph("Pada hari ini, telah dibuat dan ditanda tangani penawaran perjanjian waralaba Mixue. Yang bertanda tangan dibawah ini:\n\n").setTextAlignment(TextAlignment.LEFT).setFontSize(14f)
         val closing = Paragraph("\nDalam hal ini bertindak sebagai pengaju untuk melakukan perjanjian dalam rangka mengakuisisi atau membeli waralaba yang ditawarkan. Demikianlah perjanjian ini dibuat dan ditandatangani oleh para pihak dalam keadaan sehat jasmani dan rohani tanpa adanya paksaan dari pihak manapun.\n").setFontSize(14f).setTextAlignment(TextAlignment.JUSTIFIED)
@@ -361,7 +386,7 @@ class ProgressOne : AppCompatActivity() {
             if (!allPermissionsGranted()) {
                 Toast.makeText(
                     this,
-                    resources.getString(com.example.mobile_dev.R.string.permit),
+                    resources.getString(R.string.permit),
                     Toast.LENGTH_SHORT
                 ).show()
                 finish()
@@ -376,6 +401,11 @@ class ProgressOne : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         finish()
         return true
+    }
+
+    override fun finish() {
+        super.finish()
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
     }
 
     companion object {

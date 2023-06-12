@@ -155,6 +155,11 @@ class ProgressTwo : AppCompatActivity() {
         return true
     }
 
+    override fun finish() {
+        super.finish()
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+    }
+
     companion object {
         private const val STORAGE_CODE = 1000
         private val REQUIRED_PERMISSION = arrayOf(Manifest.permission.CAMERA)

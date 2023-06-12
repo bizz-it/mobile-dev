@@ -39,8 +39,8 @@
 
     <!--    Bottom Navigation Bar Text-->
     <string name="menu_home">Home</string>
-    <string name="menu_history">History</string>
-    <string name="menu_camera">Camera</string>
+    <string name="menu_history">Catalog</string>
+    <string name="menu_camera">Scan</string>
     <string name="menu_class">Class</string>
     <string name="menu_profile">Profile</string>
 

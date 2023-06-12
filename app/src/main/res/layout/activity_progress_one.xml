@@ -215,8 +215,8 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/placeInput"
-            android:layout_width="170dp"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="61dp"
             android:layout_gravity="start"
             android:inputType="textAutoComplete"
             android:saveEnabled="true" />
@@ -379,6 +379,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/priceDetail" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/datebtn"
+        android:layout_width="32dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/worksans_bold"
+        android:src="@drawable/round_date_range_24"
+        android:textAllCaps="false"
+        android:textColor="?colorOnSecondary"
+        android:layout_marginTop="2dp"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/date"
+        app:layout_constraintEnd_toEndOf="@+id/date"
+
+        app:layout_constraintTop_toTopOf="@+id/date" />
 
     <androidx.compose.ui.platform.ComposeView
         android:id="@+id/nextBtn"

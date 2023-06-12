@@ -121,16 +121,16 @@
         android:text="@string/guideline"
         android:textAlignment="textStart"
         android:textAllCaps="false"
-        android:textColor="?colorPrimary"
+        android:textColor="?colorTertiary"
         android:textSize="14sp"
         app:icon="@drawable/baseline_info_24"
         app:iconPadding="16dp"
-        app:iconTint="?colorPrimary"
+        app:iconTint="?colorTertiary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/photoBox"
         app:shapeAppearance="@style/ShapeAppearanceOverlay.TextInputLayout.Rounded"
-        app:strokeColor="?colorPrimary"
+        app:strokeColor="?colorTertiary"
         app:strokeWidth="2dp" />
 
     <com.google.android.material.button.MaterialButton
@@ -143,13 +143,13 @@
         android:text="@string/take"
         android:textAlignment="center"
         android:textAllCaps="false"
-        android:textColor="?colorPrimary"
+        android:textColor="?colorTertiary"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nextBtn"
         app:shapeAppearance="@style/ShapeAppearanceOverlay.TextInputLayout.Rounded"
-        app:strokeColor="?colorPrimary"
+        app:strokeColor="?colorTertiary"
         app:strokeWidth="2dp" />
 
     <androidx.compose.ui.platform.ComposeView

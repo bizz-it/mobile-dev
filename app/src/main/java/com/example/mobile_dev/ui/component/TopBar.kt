@@ -16,6 +16,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -33,11 +35,11 @@ fun TopBar(
     modifier: Modifier = Modifier,
     onClick: () -> Unit,
 ) {
-    if(isVisible) {
+    if (isVisible) { //Condition
         Box(modifier = modifier.fillMaxWidth()) {
             Button(
                 onClick = onClick,
-                colors = ButtonDefaults.buttonColors(MaterialTheme.colorScheme.onPrimary),
+                colors = ButtonDefaults.buttonColors(Color.White),
                 modifier = modifier
                     .width(80.dp)
                     .height(64.dp)
@@ -46,17 +48,33 @@ fun TopBar(
                     imageVector = Icons.Rounded.KeyboardArrowLeft,
                     modifier = modifier.size(32.dp),
                     contentDescription = null,
-                    tint = MaterialTheme.colorScheme.tertiary,
+                    tint = colorResource(R.color.darkblue),
+                )
+            }
+            Row(modifier.height(64.dp), verticalAlignment = Alignment.CenterVertically) {
+                Text(
+                    text = title,
+                    fontSize = 20.sp,
+                    fontFamily = FontFamily(Font(R.font.worksans_bold, FontWeight.Bold)),
+                    color = colorResource(R.color.darkblue),
+                    textAlign = TextAlign.Center,
+                    style = MaterialTheme.typography.bodyLarge.copy(
+                        fontWeight = FontWeight.ExtraBold
+                    ),
+                    modifier = modifier
+                        .height(28.dp)
+                        .fillMaxWidth(),
                 )
             }
         }
-    } else {
+    }
+    else {
         Row(modifier.height(64.dp), verticalAlignment = Alignment.CenterVertically) {
             Text(
                 text = title,
                 fontSize = 20.sp,
                 fontFamily = FontFamily(Font(R.font.worksans_bold, FontWeight.Bold)),
-                color = MaterialTheme.colorScheme.tertiary,
+                color = colorResource(R.color.darkblue),
                 textAlign = TextAlign.Center,
                 style = MaterialTheme.typography.bodyLarge.copy(
                     fontWeight = FontWeight.ExtraBold
@@ -74,7 +92,7 @@ fun TopBar(
 fun TopBarPreview() {
     MobiledevTheme() {
         TopBar(
-            true,
+            isVisible = false,
             title = "Agreement",
             onClick = {}
         )
