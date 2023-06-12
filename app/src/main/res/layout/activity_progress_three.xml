@@ -94,7 +94,7 @@
         android:id="@+id/photoBox"
         android:layout_width="350dp"
         android:layout_height="240dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="76dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profiledetail"
@@ -103,6 +103,7 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/photo"
+            android:scaleType="centerCrop"
             android:layout_width="310dp"
             android:layout_height="202dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -117,16 +118,16 @@
         android:id="@+id/photoGuideline"
         android:layout_width="350dp"
         android:layout_height="56dp"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="4dp"
         android:backgroundTint="?colorOnSecondary"
         android:fontFamily="@font/worksans_bold"
         android:text="@string/guideline"
+        android:textAlignment="textStart"
         android:textAllCaps="false"
         android:textColor="?colorPrimary"
         android:textSize="14sp"
-        android:textAlignment="textStart"
-        app:iconPadding="16dp"
         app:icon="@drawable/baseline_info_24"
+        app:iconPadding="16dp"
         app:iconTint="?colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -135,11 +136,30 @@
         app:strokeColor="?colorPrimary"
         app:strokeWidth="2dp" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/takePhoto"
+        android:layout_width="340dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="?colorOnSecondary"
+        android:fontFamily="@font/worksans_bold"
+        android:text="@string/take"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="?colorPrimary"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nextBtn"
+        app:shapeAppearance="@style/ShapeAppearanceOverlay.TextInputLayout.Rounded"
+        app:strokeColor="?colorPrimary"
+        app:strokeWidth="2dp" />
+
     <androidx.compose.ui.platform.ComposeView
         android:id="@+id/nextBtn"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="86dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/photoGuideline" />

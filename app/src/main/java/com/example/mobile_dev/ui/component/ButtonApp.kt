@@ -32,7 +32,7 @@ fun ButtonApp(
         Button(
             onClick = onClick,
             shape = RoundedCornerShape(20),
-            colors = ButtonDefaults.buttonColors(colorResource(R.color.darkblue)),
+            colors = ButtonDefaults.buttonColors(MaterialTheme.colorScheme.onPrimaryContainer),
             modifier = modifier
                 .width(340.dp)
                 .height(52.dp)

@@ -48,25 +48,25 @@ class LoginActivity : AppCompatActivity() {
                 ButtonApp(
                     getString(R.string.login),
                     onClick = { binding.apply {
-                        val email = emailInput.text.toString()
-                        val password = passInput.text.toString()
-                        when {
-                            email.isEmpty() -> {
-                                emailInput.error = resources.getString(R.string.emptymail)
+                            val email = emailInput.text.toString()
+                            val password = passInput.text.toString()
+                            when {
+                                email.isEmpty() -> {
+                                    emailInput.error = resources.getString(R.string.emptymail)
+                                }
+                                !email.contains('@') -> {
+                                    emailInput.error = resources.getString(R.string.errormail)
+                                }
+                                password.isEmpty() -> {
+                                    pass.error = resources.getString(R.string.emptypass)
+                                    pass.errorIconDrawable = null
+                                }
+                                password.length < 6 -> {
+                                    passInput.error = resources.getString(R.string.errorpass)
+                                    pass.errorIconDrawable = null
+                                }
+                                else -> { login(email, password)}
                             }
-                            !email.contains('@') -> {
-                                emailInput.error = resources.getString(R.string.errormail)
-                            }
-                            password.isEmpty() -> {
-                                pass.error = resources.getString(R.string.emptypass)
-                                pass.errorIconDrawable = null
-                            }
-                            password.length < 6 -> {
-                                passInput.error = resources.getString(R.string.errorpass)
-                                pass.errorIconDrawable = null
-                            }
-                            else -> { login(email, password)}
-                        }
                     } }
                 )
             }
@@ -93,10 +93,10 @@ class LoginActivity : AppCompatActivity() {
                         }
                         is Result.Success -> {
                             cancel()
-                            val i = Intent(this@LoginActivity, ProgressOne::class.java)
-                            viewModel.saveUserData(result.data)
-                            Toast.makeText(this@LoginActivity, resources.getString(R.string.successlog), Toast.LENGTH_SHORT).show()
-                            startActivity(i)
+                                val i = Intent(this@LoginActivity, ProgressOne::class.java)
+                                viewModel.saveUserData(result.data)
+                                Toast.makeText(this@LoginActivity, resources.getString(R.string.successlog), Toast.LENGTH_SHORT).show()
+                                startActivity(i)
                         }
                         is Result.Error -> {
                             cancel()
