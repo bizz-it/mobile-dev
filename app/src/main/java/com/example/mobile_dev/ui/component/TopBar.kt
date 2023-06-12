@@ -16,8 +16,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -37,7 +35,7 @@ fun TopBar(
     Box(modifier = modifier.fillMaxWidth()) {
         Button(
             onClick = onClick,
-            colors = ButtonDefaults.buttonColors(Color.White),
+            colors = ButtonDefaults.buttonColors(MaterialTheme.colorScheme.onPrimary),
             modifier = modifier
                 .width(80.dp)
                 .height(64.dp)
@@ -46,7 +44,7 @@ fun TopBar(
                 imageVector = Icons.Rounded.KeyboardArrowLeft,
                 modifier = modifier.size(32.dp),
                 contentDescription = null,
-                tint = colorResource(R.color.darkblue),
+                tint = MaterialTheme.colorScheme.tertiary,
             )
         }
         Row(modifier.height(64.dp), verticalAlignment = Alignment.CenterVertically) {
@@ -54,7 +52,7 @@ fun TopBar(
                 text = title,
                 fontSize = 20.sp,
                 fontFamily = FontFamily(Font(R.font.worksans_bold, FontWeight.Bold)),
-                color = colorResource(R.color.darkblue),
+                color = MaterialTheme.colorScheme.tertiary,
                 textAlign = TextAlign.Center,
                 style = MaterialTheme.typography.bodyLarge.copy(
                     fontWeight = FontWeight.ExtraBold

@@ -7,12 +7,14 @@ import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
+import com.example.mobile_dev.R
 import com.example.mobile_dev.createFile
 import com.example.mobile_dev.databinding.ActivityCamera2Binding
 
@@ -20,6 +22,7 @@ class CameraActivity2 : AppCompatActivity() {
     private lateinit var binding: ActivityCamera2Binding
     private var imageCapture: ImageCapture? = null
     private var cameraSelector: CameraSelector = CameraSelector.DEFAULT_FRONT_CAMERA
+    var isFlash = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +35,21 @@ class CameraActivity2 : AppCompatActivity() {
             cameraSelector = if (cameraSelector == CameraSelector.DEFAULT_FRONT_CAMERA) CameraSelector.DEFAULT_BACK_CAMERA else CameraSelector.DEFAULT_FRONT_CAMERA
             startCamera()
         }
+        binding.flashCamera.setOnClickListener {
+            if(cameraSelector == CameraSelector.DEFAULT_BACK_CAMERA) {
+                if(isFlash) {
+                    imageCapture?.flashMode = ImageCapture.FLASH_MODE_ON
+                    binding.flashCamera.setImageDrawable(AppCompatResources.getDrawable(this, R.drawable.round_flash_off_24))
+                    isFlash = false
+                } else {
+                    imageCapture?.flashMode = ImageCapture.FLASH_MODE_OFF
+                    binding.flashCamera.setImageDrawable(AppCompatResources.getDrawable(this, R.drawable.round_flash_on_24))
+                    isFlash = true
+                }
+            }
+        }
     }
+
 
     public override fun onResume() {
         super.onResume()
@@ -59,7 +76,7 @@ class CameraActivity2 : AppCompatActivity() {
                     val intent = Intent()
                     intent.putExtra("picture", photoFile)
                     intent.putExtra("isBackCamera", cameraSelector == CameraSelector.DEFAULT_BACK_CAMERA)
-                    setResult(ProgressThree.cameraX, intent)
+                    setResult(ProgressFour.cameraX, intent)
                     finish()
                 }
             }

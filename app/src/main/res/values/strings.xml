@@ -45,14 +45,12 @@
     <string name="menu_profile">Profile</string>
 
     <!--    On Boarding Screen Text-->
-    <string name="title_menu_1">Kurikulum Standar Industri Global</string>
-    <string name="title_menu_2">Belajar Fleksibel Sesuai Jadwal Anda</string>
-    <string name="title_menu_3">Code Review dari Developer Expert</string>
-    <string name="title_menu_4">Alumni Terpercaya di Berbagai Perusahaan</string>
-    <string name="desc_menu_1">Kurikulum dikembangkan bersama perusahaan dan pemilik teknologi dunia sesuai kebutuhan industri terkini.</string>
-    <string name="desc_menu_2">Belajar kapan pun, di mana pun, secara mandiri. Bebas memilih kelas sesuai minat belajar. Akses seumur hidup ke kelas dan forum diskusi setelah lulus.</string>
-    <string name="desc_menu_3">Validasi skill Anda melalui 1-on-1 Professional Code Review yang diberikan langsung oleh Developer Expert.</string>
-    <string name="desc_menu_4">Sertifikat yang membuktikan pengetahuan fundamental beserta keterampilan nyata yang diinginkan perusahaan global.</string>
+    <string name="title_menu_1">Discover Franchise</string>
+    <string name="title_menu_2">Acquire Franchise</string>
+    <string name="title_menu_3">Learn Franchise</string>
+    <string name="desc_menu_1">With our app, you can easily browse and explore an extensive list of franchises, all in one place. From fast-food chains to local businesses, we\'ve got you covered.</string>
+    <string name="desc_menu_2">With our app, you can easily browse through a wide range of franchisors and initiate agreements without the hassle of paperwork and traditional negotiations.</string>
+    <string name="desc_menu_3"> Dive into a vast library of engaging video content, packed with insightful lessons and real-world examples. Immerse yourself in the world of franchising through our courses.</string>
     <string name="learn_now">Belajar Sekarang</string>
 
     <!--    Component Text-->
@@ -85,7 +83,20 @@
     <string name="location">Enter your location</string>
     <string name="guideline">Check Photo Guideline</string>
     <string name="photocheck">Face Photo Checker</string>
+    <string name="errorphoto">Please take the picture first</string>
+    <string name="doccheck">Document Agreement</string>
+    <string name="doccheckdetail">Please check document agreement below and provide your digital signature in the box below</string>
     <string name="photocheckdetail">To continue, take a picture of your face. Please make sure the photo is not blur and according to photo guideline.</string>
     <string name="idcheck">ID Card Checker</string>
     <string name="idcheckdetail">To continue, take a picture of your official ID Card. Please make sure the photo is not blur and according to photo guideline.</string>
+
+    <!--    Category Text-->
+    <string name="category_fnb">F&amp;B</string>
+    <string name="category_retail">Retail</string>
+    <string name="category_education">Education</string>
+
+    <!--    Home Screen Text-->
+    <string name="section_live_track">Track you’re last request progress</string>
+    <string name="section_category">Franchise you’re interested in</string>
+    <string name="section_trending_franchises">Trending Franchise</string>
 </resources>

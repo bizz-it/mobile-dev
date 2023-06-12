@@ -5,12 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="?colorOnSecondary"
     tools:context=".ui.detail.DetailActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    tools:context=".ui.detail.DetailActivity">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?colorOnSecondary"
+        tools:context=".ui.detail.DetailActivity">
 
         <androidx.compose.ui.platform.ComposeView
             android:id="@+id/composeView"
@@ -159,14 +161,14 @@
             android:layout_marginTop="8dp"
             android:backgroundTint="?colorOnSecondary"
             app:icon="@drawable/round_pageview_24"
-            app:iconTint="?colorPrimary"
+            app:iconTint="?colorPrimaryVariant"
             app:iconGravity="textStart"
             android:text="View Doc"
             android:textAllCaps="false"
             android:fontFamily="@font/worksans_semibold"
-            android:textColor="?colorPrimary"
+            android:textColor="?colorPrimaryVariant"
             app:shapeAppearance="@style/ShapeAppearanceOverlay.TextInputLayout.Rounded"
-            app:strokeColor="?colorPrimary"
+            app:strokeColor="?colorPrimaryVariant"
             app:strokeWidth="2dp"
             android:elevation="4dp"
             android:contentDescription=""
@@ -181,15 +183,15 @@
             android:layout_marginTop="8dp"
             android:backgroundTint="?colorOnSecondary"
             app:icon="@drawable/round_file_download_24"
-            app:iconTint="?colorPrimary"
+            app:iconTint="?colorPrimaryVariant"
             app:iconGravity="textStart"
             android:text="Download"
             android:elevation="4dp"
             android:textAllCaps="false"
             android:fontFamily="@font/worksans_semibold"
-            android:textColor="?colorPrimary"
+            android:textColor="?colorPrimaryVariant"
             app:shapeAppearance="@style/ShapeAppearanceOverlay.TextInputLayout.Rounded"
-            app:strokeColor="?colorPrimary"
+            app:strokeColor="?colorPrimaryVariant"
             app:strokeWidth="2dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/detailDoc" />
