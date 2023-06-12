@@ -21,7 +21,6 @@ class DetailActivity : AppCompatActivity() {
         binding.composeView.setContent {
             MobiledevTheme {
                 TopBar(
-                    true,
                     getString(R.string.detail),
                     onClick = { finish() }
                 )
