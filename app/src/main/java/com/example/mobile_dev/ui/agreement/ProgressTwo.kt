@@ -18,7 +18,7 @@ import com.example.mobile_dev.databinding.ActivityProgressTwoBinding
 import com.example.mobile_dev.ui.component.ButtonApp
 import com.example.mobile_dev.ui.component.TopBar
 import com.example.mobile_dev.ui.theme.MobiledevTheme
-import com.github.gcacace.signaturepad.views.SignaturePad
+//import com.github.gcacace.signaturepad.views.SignaturePad
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
@@ -56,36 +56,36 @@ class ProgressTwo : AppCompatActivity() {
                 )
             }
         }
-        binding.signaturePad.setOnSignedListener(object : SignaturePad.OnSignedListener {
-            override fun onStartSigning() {
-                //Toast.makeText(this@MainActivity, "Mulai menulis...", Toast.LENGTH_SHORT).show()
-            }
+//        binding.signaturePad.setOnSignedListener(object : SignaturePad.OnSignedListener {
+//            override fun onStartSigning() {
+//                //Toast.makeText(this@MainActivity, "Mulai menulis...", Toast.LENGTH_SHORT).show()
+//            }
+//
+//            override fun onSigned() {
+//                binding.save.isEnabled = true
+//                binding.refresh.isEnabled = true
+//            }
+//
+//            override fun onClear() {
+//                binding.save.isEnabled = false
+//                binding.refresh.isEnabled = false
+//            }
+//        })
+//
+//        binding.refresh.setOnClickListener {
+//            binding.signaturePad.clear()
+//        }
 
-            override fun onSigned() {
-                binding.save.isEnabled = true
-                binding.refresh.isEnabled = true
-            }
-
-            override fun onClear() {
-                binding.save.isEnabled = false
-                binding.refresh.isEnabled = false
-            }
-        })
-
-        binding.refresh.setOnClickListener {
-            binding.signaturePad.clear()
-        }
-
-        binding.save.setOnClickListener {
-            val signatureBitmap = binding.signaturePad.signatureBitmap
-            if (addJpgSignatureToGallery(signatureBitmap)) {
-                Toast.makeText(this@ProgressTwo, "Tanda tangan disimpan ke dalam Galeri",
-                    Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(this@ProgressTwo, "Tidak dapat menyimpan Tanda Tangan",
-                    Toast.LENGTH_SHORT).show()
-            }
-        }
+//        binding.save.setOnClickListener {
+//            val signatureBitmap = binding.signaturePad.signatureBitmap
+//            if (addJpgSignatureToGallery(signatureBitmap)) {
+//                Toast.makeText(this@ProgressTwo, "Tanda tangan disimpan ke dalam Galeri",
+//                    Toast.LENGTH_SHORT).show()
+//            } else {
+//                Toast.makeText(this@ProgressTwo, "Tidak dapat menyimpan Tanda Tangan",
+//                    Toast.LENGTH_SHORT).show()
+//            }
+//        }
     }
 
         fun getAlbumStorageDir(albumName: String?): File {

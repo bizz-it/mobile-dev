@@ -1,5 +1,7 @@
 package com.example.mobile_dev.ui.component
 
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -16,6 +18,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -30,10 +34,10 @@ import com.example.mobile_dev.ui.theme.MobiledevTheme
 fun TopBar(
     isVisible: Boolean,
     title: String,
-    modifier: Modifier = Modifier,
     onClick: () -> Unit,
+    modifier: Modifier = Modifier,
 ) {
-    if(isVisible) {
+    if (isVisible) {
         Box(modifier = modifier.fillMaxWidth()) {
             Button(
                 onClick = onClick,
@@ -50,7 +54,8 @@ fun TopBar(
                 )
             }
         }
-    } else {
+    }
+    Column() {
         Row(modifier.height(64.dp), verticalAlignment = Alignment.CenterVertically) {
             Text(
                 text = title,
@@ -66,6 +71,20 @@ fun TopBar(
                     .fillMaxWidth(),
             )
         }
+
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(3.dp)
+                .background(
+                    brush = Brush.verticalGradient(
+                        colors = listOf(
+                            Color.Black.copy(.25f),
+                            Color.Transparent,
+                        )
+                    )
+                )
+        )
     }
 }
 

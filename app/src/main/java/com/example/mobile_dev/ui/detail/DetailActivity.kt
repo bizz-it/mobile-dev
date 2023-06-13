@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mobile_dev.R
 import com.example.mobile_dev.databinding.ActivityDetailBinding
-import com.example.mobile_dev.ui.agreement.ProgressTwo
+import com.example.mobile_dev.ui.agreement.ProgressOne
 import com.example.mobile_dev.ui.component.ButtonApp
 import com.example.mobile_dev.ui.component.TopBar
 import com.example.mobile_dev.ui.theme.MobiledevTheme
@@ -21,7 +21,7 @@ class DetailActivity : AppCompatActivity() {
         binding.composeView.setContent {
             MobiledevTheme {
                 TopBar(
-                    false,
+                    true,
                     getString(R.string.detail),
                     onClick = { finish() }
                 )
@@ -33,7 +33,7 @@ class DetailActivity : AppCompatActivity() {
                 ButtonApp(
                     getString(R.string.agreement),
                     onClick = {
-                        val i = Intent(this@DetailActivity, ProgressTwo::class.java)
+                        val i = Intent(this@DetailActivity, ProgressOne::class.java)
                         startActivity(i)
                     }
                 )

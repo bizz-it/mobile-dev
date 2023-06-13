@@ -205,15 +205,15 @@ class ProgressOne : AppCompatActivity() {
                     updateDateInView()
                 }
 
-            datebtn.setOnClickListener {
-                DatePickerDialog(
-                    this@ProgressOne,
-                    dateSetListener,
-                    cal.get(Calendar.YEAR),
-                    cal.get(Calendar.MONTH),
-                    cal.get(Calendar.DAY_OF_MONTH)
-                ).show()
-            }
+//            datebtn.setOnClickListener {
+//                DatePickerDialog(
+//                    this@ProgressOne,
+//                    dateSetListener,
+//                    cal.get(Calendar.YEAR),
+//                    cal.get(Calendar.MONTH),
+//                    cal.get(Calendar.DAY_OF_MONTH)
+//                ).show()
+//            }
 
             radiogroup.setContent {
                 MobiledevTheme {

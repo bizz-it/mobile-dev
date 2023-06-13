@@ -51,7 +51,6 @@
     <string name="desc_menu_1">With our app, you can easily browse and explore an extensive list of franchises, all in one place. From fast-food chains to local businesses, we\'ve got you covered.</string>
     <string name="desc_menu_2">With our app, you can easily browse through a wide range of franchisors and initiate agreements without the hassle of paperwork and traditional negotiations.</string>
     <string name="desc_menu_3"> Dive into a vast library of engaging video content, packed with insightful lessons and real-world examples. Immerse yourself in the world of franchising through our courses.</string>
-    <string name="learn_now">Belajar Sekarang</string>
 
     <!--    Component Text-->
     <string name="placeholder_search">Search your franchise</string>
@@ -126,5 +125,14 @@
     <string name="package_name">Insert Package Name</string>
     <string name="price_package">Insert Package Price</string>
     <string name="support_file">Supported file: .pdf, .doc, .docx</string>
+
+    <!--    Catalog Screen-->
+    <string name="process">Process</string>
+    <string name="reject">Reject</string>
+    <string name="pending">Pending</string>
+    <string name="info_process">Documents are being processed no later than D+7 after submission.</string>
+    <string name="info_reject">There are several things that you need to revise.</string>
+    <string name="info_pending">Document Submitted to the Franchisor.</string>
+    <string name="submitted">Submitted: 22 May 2023</string>
 
 </resources>

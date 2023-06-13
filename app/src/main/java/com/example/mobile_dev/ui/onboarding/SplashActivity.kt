@@ -7,13 +7,13 @@ import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityOptionsCompat
 import androidx.lifecycle.ViewModelProvider
+import com.example.mobile_dev.MainActivity
 import com.example.mobile_dev.R
 import com.example.mobile_dev.SettingFactory
 import com.example.mobile_dev.SettingViewModel
 import com.example.mobile_dev.UserPreferences
 import com.example.mobile_dev.databinding.ActivitySplashBinding
 import com.example.mobile_dev.ui.auth.dataStore
-import com.example.mobile_dev.ui.detail.DetailActivity
 
 
 class SplashActivity :  AppCompatActivity() {
@@ -32,7 +32,7 @@ class SplashActivity :  AppCompatActivity() {
         setContentView(binding.root)
         Handler(Looper.getMainLooper()).postDelayed({
             if (!isLogin) {
-                val intent = Intent(this@SplashActivity, DetailActivity::class.java)
+                val intent = Intent(this@SplashActivity, MainActivity::class.java)
                 startActivity(intent)
             } else {
                 val bundle = ActivityOptionsCompat.makeCustomAnimation(
@@ -47,6 +47,6 @@ class SplashActivity :  AppCompatActivity() {
     }
 
     companion object {
-        const val DURATION: Long = 1500
+        const val DURATION: Long = 3500
     }
 }
