@@ -7,6 +7,7 @@ import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityOptionsCompat
 import androidx.lifecycle.ViewModelProvider
+import com.example.mobile_dev.MainActivity
 import com.example.mobile_dev.R
 import com.example.mobile_dev.SettingFactory
 import com.example.mobile_dev.SettingViewModel
@@ -32,7 +33,7 @@ class SplashActivity :  AppCompatActivity() {
         setContentView(binding.root)
         Handler(Looper.getMainLooper()).postDelayed({
             if (!isLogin) {
-                val intent = Intent(this@SplashActivity, ProgressOne::class.java)
+                val intent = Intent(this@SplashActivity, MainActivity::class.java)
                 startActivity(intent)
             } else {
                 val bundle = ActivityOptionsCompat.makeCustomAnimation(

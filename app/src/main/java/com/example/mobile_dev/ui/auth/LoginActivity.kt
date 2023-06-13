@@ -12,6 +12,7 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.ViewModelProvider
+import com.example.mobile_dev.MainActivity
 import com.example.mobile_dev.R
 import com.example.mobile_dev.SettingFactory
 import com.example.mobile_dev.SettingViewModel
@@ -93,7 +94,7 @@ class LoginActivity : AppCompatActivity() {
                         }
                         is Result.Success -> {
                             cancel()
-                            val i = Intent(this@LoginActivity, ProgressOne::class.java)
+                            val i = Intent(this@LoginActivity, MainActivity::class.java)
                             viewModel.saveUserData(result.data)
                             Toast.makeText(this@LoginActivity, resources.getString(R.string.successlog), Toast.LENGTH_SHORT).show()
                             startActivity(i)

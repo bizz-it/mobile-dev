@@ -11,7 +11,6 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
-import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import com.example.mobile_dev.R
@@ -37,17 +36,28 @@ class CameraActivity : AppCompatActivity() {
 
         binding.captureImage.setOnClickListener { takePhoto() }
         binding.switchCamera.setOnClickListener {
-            cameraSelector = if (cameraSelector == CameraSelector.DEFAULT_BACK_CAMERA) CameraSelector.DEFAULT_FRONT_CAMERA else CameraSelector.DEFAULT_BACK_CAMERA
+            cameraSelector =
+                if (cameraSelector == CameraSelector.DEFAULT_BACK_CAMERA) CameraSelector.DEFAULT_FRONT_CAMERA else CameraSelector.DEFAULT_BACK_CAMERA
             startCamera()
         }
         binding.flashCamera.setOnClickListener {
-            if(isFlash) {
+            if (isFlash) {
                 imageCapture.flashMode = ImageCapture.FLASH_MODE_ON
-                binding.flashCamera.setImageDrawable(AppCompatResources.getDrawable(this, R.drawable.round_flash_off_24))
+                binding.flashCamera.setImageDrawable(
+                    AppCompatResources.getDrawable(
+                        this,
+                        R.drawable.round_flash_off_24
+                    )
+                )
                 isFlash = false
             } else {
                 imageCapture.flashMode = ImageCapture.FLASH_MODE_OFF
-                binding.flashCamera.setImageDrawable(AppCompatResources.getDrawable(this, R.drawable.round_flash_on_24))
+                binding.flashCamera.setImageDrawable(
+                    AppCompatResources.getDrawable(
+                        this,
+                        R.drawable.round_flash_on_24
+                    )
+                )
                 isFlash = true
             }
         }
@@ -88,10 +98,14 @@ class CameraActivity : AppCompatActivity() {
                         Toast.LENGTH_SHORT
                     ).show()
                 }
+
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
                     val intent = Intent()
                     intent.putExtra("picture", photoFile)
-                    intent.putExtra("isBackCamera", cameraSelector == CameraSelector.DEFAULT_BACK_CAMERA)
+                    intent.putExtra(
+                        "isBackCamera",
+                        cameraSelector == CameraSelector.DEFAULT_BACK_CAMERA
+                    )
                     setResult(ProgressThree.cameraX, intent)
                     finish()
                 }
@@ -103,7 +117,7 @@ class CameraActivity : AppCompatActivity() {
         val cameraProviderFeature = ProcessCameraProvider.getInstance(this)
         cameraProviderFeature.addListener({
             val cameraProvider: ProcessCameraProvider = cameraProviderFeature.get()
-            val preview = Preview.Builder().build().also {
+            val preview = androidx.camera.core.Preview.Builder().build().also {
                 it.setSurfaceProvider(binding.viewFinder.surfaceProvider)
             }
             imageCapture = ImageCapture.Builder().build()

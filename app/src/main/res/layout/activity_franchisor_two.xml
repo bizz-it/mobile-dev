@@ -1,342 +1,349 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".ui.franchisor.FranchisorTwo">
+    android:clipToPadding="false"
+    tools:context=".ui.agreement.ProgressOne">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.compose.ui.platform.ComposeView
+        android:id="@+id/composeView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:clipToPadding="false"
-        tools:context=".ui.franchisor.FranchisorTwo">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.compose.ui.platform.ComposeView
-            android:id="@+id/composeView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey"
+        android:elevation="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/composeView" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/grey"
-            android:elevation="5dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/composeView" />
+    <ScrollView
 
-        <LinearLayout
-            android:id="@+id/progress"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:gravity="center"
-            android:orientation="horizontal"
-            app:layout_constraintStart_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/composeView">
-
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/shapeableImageView1"
-                android:layout_width="72dp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/progress2" />
-
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/shapeableImageView2"
-                android:layout_width="72dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:background="@drawable/progress1" />
-
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/shapeableImageView3"
-                android:layout_width="72dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:background="@drawable/progress2" />
-
-        </LinearLayout>
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/disclosure"
-            android:layout_width="350dp"
-            android:layout_height="36dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="32dp"
-            android:fontFamily="@font/worksans_bold"
-            android:text="@string/disclosure"
-            android:textColor="?colorSecondary"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/progress" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/desc_disc"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="32dp"
-            android:fontFamily="@font/worksans_regular"
-            android:text="@string/desc_disclosure"
-            android:textColor="?colorOnPrimary"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/disclosure" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/disc1"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="32dp"
-            android:fontFamily="@font/worksans_regular"
-            android:text="@string/disc1"
-            android:textColor="?colorOnPrimary"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/desc_disc" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/disc2"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="32dp"
-            android:fontFamily="@font/worksans_regular"
-            android:text="@string/disc2"
-            android:textColor="?colorOnPrimary"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/disc1" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/disc3"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="32dp"
-            android:fontFamily="@font/worksans_regular"
-            android:text="@string/disc3"
-            android:textColor="?colorOnPrimary"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/disc2" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/disc4"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="32dp"
-            android:fontFamily="@font/worksans_regular"
-            android:text="@string/disc4"
-            android:textColor="?colorOnPrimary"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/disc3" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toBottomOf="@+id/composeView">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/pdf"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/disc4">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/progress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/shapeableImageView1"
+                    android:layout_width="72dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/progress2" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/shapeableImageView2"
+                    android:layout_width="72dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:background="@drawable/progress1" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/shapeableImageView3"
+                    android:layout_width="72dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:background="@drawable/progress2" />
+
+            </LinearLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/disclosure"
+                android:layout_width="350dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="32dp"
+                android:fontFamily="@font/worksans_bold"
+                android:text="@string/disclosure"
+                android:textColor="?colorSecondary"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/progress" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/desc_disc"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:fontFamily="@font/worksans_regular"
+                android:text="@string/desc_disclosure"
+                android:textColor="?colorOnPrimary"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/disclosure" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/disc1"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:fontFamily="@font/worksans_regular"
+                android:text="@string/disc1"
+                android:textColor="?colorOnPrimary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/desc_disc" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/disc2"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:fontFamily="@font/worksans_regular"
+                android:text="@string/disc2"
+                android:textColor="?colorOnPrimary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/disc1" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/disc3"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:fontFamily="@font/worksans_regular"
+                android:text="@string/disc3"
+                android:textColor="?colorOnPrimary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/disc2" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/disc4"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:fontFamily="@font/worksans_regular"
+                android:text="@string/disc4"
+                android:textColor="?colorOnPrimary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/disc3" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/pdf"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/disc4">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout5"
+                    style="@style/LoginTextInputLayoutStyle"
+                    android:layout_width="350dp"
+                    android:layout_height="140dp"
+                    android:layout_marginBottom="2dp"
+                    android:fontFamily="@font/worksans_regular"
+                    android:hint="@string/support_file"
+                    android:textColorHint="?colorOnPrimary"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearance="@style/ShapeAppearanceOverlay.TextInputLayout.Rounded">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/logoInput"
+                        android:layout_width="350dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="2dp"
+                        android:gravity="bottom|center"
+                        android:inputType="textAutoComplete"
+                        android:saveEnabled="true" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="85dp"
+                    android:layout_height="85dp"
+                    android:layout_gravity="start"
+                    android:layout_marginBottom="18dp"
+                    android:layout_weight="1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/textInputLayout5"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_doc" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/requirements"
+                android:layout_width="350dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="32dp"
+                android:fontFamily="@font/worksans_bold"
+                android:text="@string/requirements"
+                android:textColor="?colorSecondary"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pdf" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/desc_requirements"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:fontFamily="@font/worksans_regular"
+                android:text="@string/franchisedetail"
+                android:textColor="?colorOnPrimary"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/requirements" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayout5"
+                android:id="@+id/desc_franchise_requirements"
                 style="@style/LoginTextInputLayoutStyle"
                 android:layout_width="350dp"
                 android:layout_height="140dp"
-                android:layout_marginBottom="2dp"
+                android:layout_marginTop="12dp"
                 android:fontFamily="@font/worksans_regular"
-                android:hint="@string/support_file"
-                android:textColorHint="?colorOnPrimary"
+                android:hint="@string/desc_franchise_business"
+                android:textColorHint="?colorPrimary"
                 android:textSize="14sp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/desc_requirements"
                 app:shapeAppearance="@style/ShapeAppearanceOverlay.TextInputLayout.Rounded">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/logoInput"
+                    android:id="@+id/descFranchiseRequirementsInput"
                     android:layout_width="350dp"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="2dp"
-                    android:gravity="bottom|center"
+                    android:gravity="top|start"
                     android:inputType="textAutoComplete"
                     android:saveEnabled="true" />
-
             </com.google.android.material.textfield.TextInputLayout>
 
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="85dp"
-                android:layout_height="85dp"
-                android:layout_gravity="start"
-                android:layout_marginBottom="18dp"
-                android:layout_weight="1"
-                app:layout_constraintBottom_toBottomOf="parent"
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/price_option"
+                android:layout_width="350dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="32dp"
+                android:fontFamily="@font/worksans_bold"
+                android:text="@string/price_option"
+                android:textColor="?colorSecondary"
+                android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/textInputLayout5"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_doc" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/desc_franchise_requirements" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/desc_price_option"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:fontFamily="@font/worksans_regular"
+                android:text="@string/desc_price_options"
+                android:textColor="?colorOnPrimary"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/price_option" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/price_input"
+                style="@style/LoginTextInputLayoutStyle"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/worksans_regular"
+                android:hint="@string/package_name"
+                android:textColorHint="?colorPrimary"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/desc_price_option"
+                app:shapeAppearance="@style/ShapeAppearanceOverlay.TextInputLayout.Rounded">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/priceInput"
+                    android:layout_width="350dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="start"
+                    android:inputType="textAutoComplete"
+                    android:saveEnabled="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/price_input2"
+                style="@style/LoginTextInputLayoutStyle"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/worksans_regular"
+                android:hint="@string/price_package"
+                android:textColorHint="?colorPrimary"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/price_input"
+                app:shapeAppearance="@style/ShapeAppearanceOverlay.TextInputLayout.Rounded">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/priceInput2"
+                    android:layout_width="350dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="start"
+                    android:inputType="textAutoComplete"
+                    android:saveEnabled="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.compose.ui.platform.ComposeView
+                android:id="@+id/nextBtn"
+                android:layout_width="340dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:paddingBottom="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/price_input2" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/requirements"
-            android:layout_width="350dp"
-            android:layout_height="36dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="32dp"
-            android:fontFamily="@font/worksans_bold"
-            android:text="@string/requirements"
-            android:textColor="?colorSecondary"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pdf" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/desc_requirements"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="32dp"
-            android:fontFamily="@font/worksans_regular"
-            android:text="@string/franchisedetail"
-            android:textColor="?colorOnPrimary"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/requirements" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/desc_franchise_requirements"
-            style="@style/LoginTextInputLayoutStyle"
-            android:layout_width="350dp"
-            android:layout_height="140dp"
-            android:layout_marginTop="12dp"
-            android:fontFamily="@font/worksans_regular"
-            android:hint="@string/desc_franchise_business"
-            android:textColorHint="?colorPrimary"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/desc_requirements"
-            app:shapeAppearance="@style/ShapeAppearanceOverlay.TextInputLayout.Rounded">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/descFranchiseRequirementsInput"
-                android:layout_width="350dp"
-                android:layout_height="match_parent"
-                android:gravity="top|start"
-                android:inputType="textAutoComplete"
-                android:saveEnabled="true" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/price_option"
-            android:layout_width="350dp"
-            android:layout_height="36dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="32dp"
-            android:fontFamily="@font/worksans_bold"
-            android:text="@string/price_option"
-            android:textColor="?colorSecondary"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/desc_franchise_requirements" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/desc_price_option"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="32dp"
-            android:fontFamily="@font/worksans_regular"
-            android:text="@string/desc_price_options"
-            android:textColor="?colorOnPrimary"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/price_option" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/price_input"
-            style="@style/LoginTextInputLayoutStyle"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:fontFamily="@font/worksans_regular"
-            android:hint="@string/package_name"
-            android:textColorHint="?colorPrimary"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/desc_price_option"
-            app:shapeAppearance="@style/ShapeAppearanceOverlay.TextInputLayout.Rounded">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/priceInput"
-                android:layout_width="350dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="start"
-                android:inputType="textAutoComplete"
-                android:saveEnabled="true" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/price_input2"
-            style="@style/LoginTextInputLayoutStyle"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:fontFamily="@font/worksans_regular"
-            android:hint="@string/price_package"
-            android:textColorHint="?colorPrimary"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/price_input"
-            app:shapeAppearance="@style/ShapeAppearanceOverlay.TextInputLayout.Rounded">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/priceInput2"
-                android:layout_width="350dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="start"
-                android:inputType="textAutoComplete"
-                android:saveEnabled="true" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <androidx.compose.ui.platform.ComposeView
-            android:id="@+id/nextBtn"
-            android:layout_width="340dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:paddingBottom="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/price_input2" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

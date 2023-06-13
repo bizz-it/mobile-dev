@@ -1,9 +1,9 @@
 package com.example.mobile_dev
 
-import android.content.Intent
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
@@ -16,9 +16,11 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.graphics.Color.Companion.LightGray
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -27,7 +29,9 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.mobile_dev.ui.navigation.NavigationItem
 import com.example.mobile_dev.ui.navigation.Screen
+import com.example.mobile_dev.ui.screen.education.ClassScreen
 import com.example.mobile_dev.ui.screen.home.HomeScreen
+import com.example.mobile_dev.ui.screen.profile.ProfileScreen
 import com.example.mobile_dev.ui.theme.MobiledevTheme
 
 @Composable
@@ -37,7 +41,6 @@ fun BizzitApp(
 ) {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
-    val context = LocalContext.current
 
     Scaffold(
         bottomBar = {
@@ -53,7 +56,11 @@ fun BizzitApp(
             modifier = Modifier.padding(innerPadding)
         ) {
             composable(Screen.Home.route) {
-                context.startActivity(Intent(context, MainActivity::class.java))
+                HomeScreen(
+                    navigateToDetail = { franchiseId ->
+                        navController.navigate(Screen.DetailFranchise.createRoute(franchiseId))
+                    }
+                )
             }
             composable(Screen.History.route) {
                 // History
@@ -62,13 +69,10 @@ fun BizzitApp(
                 // Camera
             }
             composable(Screen.Class.route) {
-                // Class
+                ClassScreen()
             }
             composable(Screen.Profile.route) {
-                // Profile
-            }
-            composable(Screen.DetailFranchise.route) {
-                // DetailFranchise
+                ProfileScreen()
             }
         }
     }
@@ -108,10 +112,14 @@ private fun BottomBar(
             NavigationItem(
                 title = stringResource(R.string.menu_profile),
                 icon = Icons.Default.AccountCircle,
-                screen = Screen.Profile,
+                screen = Screen.Profile
             ),
         )
-        BottomNavigation {
+        BottomNavigation(
+            backgroundColor = MaterialTheme.colors.onPrimary,
+            contentColor = MaterialTheme.colors.primary,
+            modifier = Modifier
+        ) {
             navigationItems.map { item ->
                 BottomNavigationItem(
                     icon = {
@@ -120,7 +128,13 @@ private fun BottomBar(
                             contentDescription = item.title
                         )
                     },
-                    label = { Text(item.title) },
+                    label = {
+                        Text(
+                            item.title,
+                            fontSize = 12.sp,
+                            fontWeight = FontWeight.SemiBold
+                        )
+                    },
                     selected = currentRoute == item.screen.route,
                     onClick = {
                         navController.navigate(item.screen.route) {
@@ -130,7 +144,8 @@ private fun BottomBar(
                             restoreState = true
                             launchSingleTop = true
                         }
-                    }
+                    },
+                    unselectedContentColor = LightGray,
                 )
             }
         }
