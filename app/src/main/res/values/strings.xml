@@ -83,6 +83,9 @@
     <string name="location">Enter your location</string>
     <string name="guideline">Check Photo Guideline</string>
     <string name="photocheck">Face Photo Checker</string>
+    <string name="errorphoto">Please take the picture first</string>
+    <string name="doccheck">Document Agreement</string>
+    <string name="doccheckdetail">Please check document agreement below and provide your digital signature in the box below</string>
     <string name="photocheckdetail">To continue, take a picture of your face. Please make sure the photo is not blur and according to photo guideline.</string>
     <string name="idcheck">ID Card Checker</string>
     <string name="idcheckdetail">To continue, take a picture of your official ID Card. Please make sure the photo is not blur and according to photo guideline.</string>
@@ -122,5 +125,14 @@
     <string name="package_name">Insert Package Name</string>
     <string name="price_package">Insert Package Price</string>
     <string name="support_file">Supported file: .pdf, .doc, .docx</string>
+
+    <!--    Catalog Screen-->
+    <string name="process">Process</string>
+    <string name="reject">Reject</string>
+    <string name="pending">Pending</string>
+    <string name="info_process">Documents are being processed no later than D+7 after submission.</string>
+    <string name="info_reject">There are several things that you need to revise.</string>
+    <string name="info_pending">Document Submitted to the Franchisor.</string>
+    <string name="submitted">Submitted: 22 May 2023</string>
 
 </resources>

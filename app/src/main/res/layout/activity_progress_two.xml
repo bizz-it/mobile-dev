@@ -13,15 +13,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/grey"
-        android:elevation="5dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/composeView"
-        />
-
     <LinearLayout
         android:id="@+id/progress"
         android:layout_width="match_parent"
@@ -89,6 +80,63 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profile" />
+
+    <RelativeLayout
+        android:id="@+id/signatureContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/cream"
+        app:layout_constraintBottom_toTopOf="@+id/linearButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+<!--        <com.github.gcacace.signaturepad.views.SignaturePad-->
+<!--            android:id="@+id/signaturePad"-->
+<!--            android:layout_width="340dp"-->
+<!--            android:layout_height="160dp"-->
+<!--            app:penColor="@android:color/black" />-->
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/linearButton"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/nextBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/refresh"
+            android:layout_width="155dp"
+            android:layout_height="52dp"
+            android:fontFamily="@font/worksans_bold"
+            android:text="Refresh"
+            android:textAllCaps="false"
+            android:textColor="?colorOnSecondary"
+            android:backgroundTint="?colorPrimaryVariant"
+            android:textSize="16sp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/save"
+            android:layout_width="155dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="30dp"
+            android:fontFamily="@font/worksans_bold"
+            android:text="Save"
+            android:textAllCaps="false"
+            android:textColor="?colorOnSecondary"
+            android:backgroundTint="?colorPrimaryVariant"
+            android:textSize="16sp" />
+
+    </LinearLayout>
 
     <androidx.compose.ui.platform.ComposeView
         android:id="@+id/nextBtn"

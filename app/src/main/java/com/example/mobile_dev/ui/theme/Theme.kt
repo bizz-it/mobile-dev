@@ -21,7 +21,6 @@ private val DarkColorScheme = darkColorScheme(
 
 private val LightColorScheme = lightColorScheme(
     primary = Yellow,
-    primaryContainer = LightBlue,
     secondary = LightBlue,
     tertiary = DarkBlue,
     onPrimary = White,
@@ -41,6 +40,7 @@ private val LightColorScheme = lightColorScheme(
 @Composable
 fun MobiledevTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
+    dynamicColor: Boolean = true,
     content: @Composable () -> Unit
 ) {
 

@@ -13,7 +13,6 @@ import com.example.mobile_dev.SettingFactory
 import com.example.mobile_dev.SettingViewModel
 import com.example.mobile_dev.UserPreferences
 import com.example.mobile_dev.databinding.ActivitySplashBinding
-import com.example.mobile_dev.ui.agreement.ProgressOne
 import com.example.mobile_dev.ui.auth.dataStore
 
 

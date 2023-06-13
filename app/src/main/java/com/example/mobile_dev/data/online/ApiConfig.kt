@@ -1,10 +1,10 @@
 package com.example.mobile_dev.data.online
 
+import com.example.mobile_dev.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import com.example.mobile_dev.BuildConfig
 object ApiConfig {
     fun getApiService(): ApiService {
 

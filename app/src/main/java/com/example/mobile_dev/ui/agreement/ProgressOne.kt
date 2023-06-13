@@ -1,17 +1,20 @@
 package com.example.mobile_dev.ui.agreement
 
 import android.Manifest
+import android.app.DatePickerDialog
 import android.app.Dialog
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.drawable.ColorDrawable
+import android.icu.text.SimpleDateFormat
 import android.location.Geocoder
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
+import android.text.format.DateFormat
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
@@ -53,9 +56,10 @@ import com.itextpdf.layout.element.Table
 import com.itextpdf.layout.property.HorizontalAlignment
 import com.itextpdf.layout.property.TextAlignment
 import java.io.File
-import java.io.FileOutputStream
-import java.io.OutputStream
+import java.util.Calendar
+import java.util.Date
 import java.util.Locale
+import kotlin.random.Random
 
 class ProgressOne : AppCompatActivity() {
 
@@ -64,10 +68,13 @@ class ProgressOne : AppCompatActivity() {
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private lateinit var viewModel: SettingViewModel
     private lateinit var dialog: Dialog
+    private lateinit var data: ArrayList<String>
     private lateinit var currentPhotoPath: String
     private val agreementViewModel: AgreementViewModel by viewModels {
         ViewModelFactory(this)
     }
+    private var photo2: File? = null
+    private val cal: Calendar = Calendar.getInstance()
 
     private val launcherIntentCamera = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
@@ -76,6 +83,7 @@ class ProgressOne : AppCompatActivity() {
             val myFile = File(currentPhotoPath)
             val bitmap = BitmapFactory.decodeFile(myFile.path)
             agreementViewModel.setFile(myFile)
+            photo2 = myFile
             binding.photo.setImageBitmap(bitmap)
         }
     }
@@ -92,106 +100,154 @@ class ProgressOne : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        data = ArrayList()
         super.onCreate(savedInstanceState)
         binding = ActivityProgressOneBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val pref = UserPreferences.getInstance(dataStore)
         viewModel = ViewModelProvider(this, SettingFactory(pref))[SettingViewModel::class.java]
-
+        val cal = Calendar.getInstance()
         if(!allPermissionsGranted()) {
             ActivityCompat.requestPermissions(this, REQUIRED_PERMISSION, REQUEST_CODE)
         }
+
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
-        binding.composeView.setContent {
-            MobiledevTheme {
-                TopBar(
-                    true,
-                    getString(R.string.agreement),
-                    onClick = {
-                        val i = Intent(this@ProgressOne, DetailActivity::class.java)
-                        startActivity(i)
-                    }
-                )
-            }
-        }
-        agreementViewModel.tempFile.observe(this@ProgressOne) { file ->
-            val bitmap = BitmapFactory.decodeFile(file.path)
-            binding.photo.setImageBitmap(bitmap)
-        }
-
         binding.apply {
-                viewModel.getUserData().observe(this@ProgressOne) { user ->
-                    emailInput.setText(user.email.toString())
-                    nameInput.setText(user.nama.toString())
-                    telfInput.setText(user.noTelp.toString())
-                    if(user.tanggalLahir?.equals("null") == true) {
-                        dateInput.setText(user.tanggalLahir.toString())
-                    } else if(user.tempatLahir?.equals("null") == true) {
-                        placeInput.setText(user.tempatLahir.toString())
-                    }
+            composeView.setContent {
+                MobiledevTheme {
+                    TopBar(true,
+                        getString(R.string.agreement),
+                        onClick = {
+                            val i = Intent(this@ProgressOne, DetailActivity::class.java)
+                            startActivity(i)
+                        }
+                    )
                 }
-        }
-
-
-        binding.locbtn.setOnClickListener {
-            getMyLastLocation()
-            agreementViewModel.latlng.observe(this@ProgressOne) { file ->
-                Log.d("PHOTO", file?.get(0)?.getAddressLine(0).toString() )
-                binding.locInput.setText(file?.get(0)?.getAddressLine(0).toString())
-                file?.get(0)?.getAddressLine(0)
             }
-        }
-
-        binding.camBtn.setContent {
-            MobiledevTheme {
-                CamButton(
-                    getString(R.string.add),
-                    onClick = {
-                        addStory()
-                    }
-                )
+            agreementViewModel.tempFile.observe(this@ProgressOne) { file ->
+                val bitmap = BitmapFactory.decodeFile(file.path)
+                photo.setImageBitmap(bitmap)
             }
-        }
 
-        binding.nextBtn.setContent {
-            MobiledevTheme {
-                ButtonApp(
-                    getString(R.string.next),
-                    onClick = {
-                        createPdf()
-                        val i = Intent(this@ProgressOne, ProgressTwo::class.java)
-                        startActivity(i)
-                    }
-                )
+            viewModel.getUserData().observe(this@ProgressOne) { user ->
+                emailInput.setText(user.email.toString())
+                nameInput.setText(user.nama.toString())
+                telfInput.setText(user.noTelp.toString())
+                if (user.tanggalLahir?.equals("null") != true) {
+                    dateInput.setText(user.tanggalLahir.toString())
+                }
+                if (user.tempatLahir?.equals("null") != true) {
+                    placeInput.setText(user.tempatLahir.toString())
+                }
             }
-        }
+            locbtn.setOnClickListener {
+                getMyLastLocation()
+                agreementViewModel.latlng.observe(this@ProgressOne) { file ->
+                    Log.d("PHOTO", file?.get(0)?.getAddressLine(0).toString())
+                    locInput.setText(file?.get(0)?.getAddressLine(0).toString())
+                }
+            }
 
-        binding.radiogroup.setContent {
-            MobiledevTheme {
-                val priceList = arrayListOf<PriceList>()
-                priceList.add(
-                    PriceList(
-                        name = "Prince",
-                        price = "250"
+            camBtn.setContent {
+                MobiledevTheme {
+                    CamButton(
+                        getString(R.string.add),
+                        onClick = {
+                            addStory()
+                        }
                     )
-                )
-                priceList.add(
-                    PriceList(
-                        name = "Lucky",
-                        price = "500"
+                }
+            }
+
+            nextBtn.setContent {
+                MobiledevTheme {
+                    ButtonApp(
+                        getString(R.string.next),
+                        onClick = {
+                            val email = emailInput.text.toString()
+                            val name = nameInput.text.toString()
+                            val telf = telfInput.text.toString()
+                            val place = placeInput.text.toString()
+                            val date = dateInput.text.toString()
+                            val loc = locInput.text.toString()
+                            if (email.isNotEmpty() && name.isNotEmpty() && telf.isNotEmpty() && place.isNotEmpty() && date.isNotEmpty() && loc.isNotEmpty() && photo2 != null) {
+                                if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) ==
+                                    PackageManager.PERMISSION_DENIED
+                                ) {
+                                    val permissions =
+                                        arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                                    requestPermissions(permissions, STORAGE_CODE)
+                                } else {
+                                    data.add(name)
+                                    data.add(email)
+                                    data.add(telf)
+                                    data.add(place)
+                                    data.add(date)
+                                    data.add(loc)
+                                    createPdf(data, photo2)
+                                    val i = Intent(this@ProgressOne, ProgressTwo::class.java)
+                                    startActivity(i)
+                                }
+                            }
+                            else {
+                                Toast.makeText(this@ProgressOne, "Please complete all your information first", Toast.LENGTH_SHORT).show()
+                            }
+                        }
                     )
-                )
-                priceList.add(
-                    PriceList(
-                        name = "Frankie",
-                        price = "300"
+                }
+            }
+
+            val dateSetListener =
+                DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
+                    cal.set(Calendar.YEAR, year)
+                    cal.set(Calendar.MONTH, monthOfYear)
+                    cal.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+                    updateDateInView()
+                }
+
+//            datebtn.setOnClickListener {
+//                DatePickerDialog(
+//                    this@ProgressOne,
+//                    dateSetListener,
+//                    cal.get(Calendar.YEAR),
+//                    cal.get(Calendar.MONTH),
+//                    cal.get(Calendar.DAY_OF_MONTH)
+//                ).show()
+//            }
+
+            radiogroup.setContent {
+                MobiledevTheme {
+                    val priceList = arrayListOf<PriceList>()
+                    priceList.add(
+                        PriceList(
+                            name = "Prince",
+                            price = "250"
+                        )
                     )
-                )
-                RadioCostum(
-                    priceList
-                )
+                    priceList.add(
+                        PriceList(
+                            name = "Lucky",
+                            price = "500"
+                        )
+                    )
+                    priceList.add(
+                        PriceList(
+                            name = "Frankie",
+                            price = "300"
+                        )
+                    )
+                    RadioCostum(
+                        priceList
+                    )
+                }
             }
         }
+    }
+
+    private fun updateDateInView() {
+        val myFormat = "MM/dd/yyyy" // mention the format you need
+        val sdf = SimpleDateFormat(myFormat, Locale.US)
+        binding.dateInput.setText(sdf.format(cal.time))
     }
 
     private fun addStory() {
@@ -262,57 +318,62 @@ class ProgressOne : AppCompatActivity() {
         }
     }
 
-    private fun createPdf() {
-        agreementViewModel.tempFile.observe(this@ProgressOne) { photo ->
-            agreementViewModel.latlng.observe(this@ProgressOne) { loc ->
-                viewModel.getUserData().observe(this@ProgressOne) { user ->
-                    val pdfPath = Environment.getExternalStorageDirectory().toString()
-                    val file = File(pdfPath, "myPDF.pdf")
-                    val outputStream: OutputStream = FileOutputStream(file)
-                    val writer = PdfWriter(file)
-                    val pdfDocument = PdfDocument(writer)
-                    val document = Document(pdfDocument)
-                    pdfDocument.defaultPageSize = PageSize.A4
-                    document.setMargins(0f, 0f, 0f, 0f)
+    private fun createPdf(data: ArrayList<String>, photo: File?) {
+        val pdfpath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS).toString()
+        val file = File(pdfpath, "agreement.pdf")
+        val writer = PdfWriter(file)
+        val pdfDocument = PdfDocument(writer)
+        val document = Document(pdfDocument)
+        pdfDocument.defaultPageSize = PageSize.A4
+        document.setMargins(44f, 44f, 44f, 44f)
 
-                    val bitmap = BitmapFactory.decodeFile(photo.path)
-                    val stream = ByteArrayOutputStream()
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, 30, stream)
-                    val bitmapData = stream.toByteArray()
-                    val imageData: ImageData = ImageDataFactory.create(bitmapData)
-                    val image = Image(imageData)
+        val bitmap = BitmapFactory.decodeFile(photo?.path)
+        val stream = ByteArrayOutputStream()
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 30, stream)
+        val bitmapData = stream.toByteArray()
+        val imageData: ImageData = ImageDataFactory.create(bitmapData)
+        val image = Image(imageData)
 
-                    val visitorTicket = Paragraph("Visitor Ticket").setBold().setFontSize(24f)
-                        .setTextAlignment(TextAlignment.CENTER)
-                    val group =
-                        Paragraph("Tourism Department\n" + "Government of Uttar Pradesh, India").setTextAlignment(
-                            TextAlignment.CENTER
-                        ).setFontSize(12f)
-                    val varansi = Paragraph("Varanasi").setBold().setFontSize(20f)
-                        .setTextAlignment(TextAlignment.CENTER)
-                    val width = floatArrayOf(100f, 100f)
-                    var table = Table(width)
-                    table.setHorizontalAlignment(HorizontalAlignment.CENTER)
-                    table.addCell(Cell().add(Paragraph("Name")))
-                    table.addCell(Cell().add(Paragraph(user.nama.toString())))
-                    table.addCell(Cell().add(Paragraph("Email")))
-                    table.addCell(Cell().add(Paragraph(user.email.toString())))
-                    table.addCell(Cell().add(Paragraph("Telephone Input")))
-                    table.addCell(Cell().add(Paragraph(user.noTelp.toString())))
-                    table.addCell(Cell().add(Paragraph("Place & Date Birth")))
-                    table.addCell(Cell().add(Paragraph("${user.tempatLahir.toString()} + ${user.tanggalLahir.toString()}")))
-                    table.addCell(Cell().add(Paragraph("Location")))
-                    table.addCell(Cell().add(Paragraph(loc?.get(0)?.getAddressLine(0))))
+        val charPool : List<Char> = ('A'..'M') + ('A'..'Z')
+        val numPool : List<Char> = ('0'..'5') + ('6'..'9')
 
-                    document.add(visitorTicket)
-                    document.add(group)
-                    document.add(varansi)
-                    document.add(table)
-                    document.add(image)
-                    document.close()
-                }
-            }
-        }
+        fun randomStringByKotlinRandom() = (1..4)
+            .map { Random.nextInt(0, charPool.size).let { charPool[it] } }
+            .joinToString("")
+        fun randomNumByKotlinRandom() = (1..4)
+            .map { Random.nextInt(0, numPool.size).let { charPool[it] } }
+            .joinToString("")
+        val date : String = DateFormat.format("dd-MMM-yyyy" , Date()) as String
+        val title = Paragraph("SURAT PERJANJIAN WARALABA MIXUE").setBold().setFontSize(24f).setTextAlignment(TextAlignment.CENTER)
+        val nosurat = Paragraph("Nomor : " + randomStringByKotlinRandom() +"/"+ randomNumByKotlinRandom() +"/2023").setFontSize(68f).setTextAlignment(TextAlignment.CENTER)
+        val opening = Paragraph("Dengan hormat,").setFontSize(14f).setTextAlignment(TextAlignment.LEFT)
+        val opening2 = Paragraph("Pada hari ini, telah dibuat dan ditanda tangani penawaran perjanjian waralaba Mixue. Yang bertanda tangan dibawah ini:\n\n").setTextAlignment(TextAlignment.LEFT).setFontSize(14f)
+        val closing = Paragraph("\nDalam hal ini bertindak sebagai pengaju untuk melakukan perjanjian dalam rangka mengakuisisi atau membeli waralaba yang ditawarkan. Demikianlah perjanjian ini dibuat dan ditandatangani oleh para pihak dalam keadaan sehat jasmani dan rohani tanpa adanya paksaan dari pihak manapun.\n").setFontSize(14f).setTextAlignment(TextAlignment.JUSTIFIED)
+        val closing2 = Paragraph("\n\nMalang, $date").setFontSize(16f).setTextAlignment(TextAlignment.RIGHT)
+        val closing3 = Paragraph("\n\n\n ${data[0]}").setFontSize(16f).setTextAlignment(TextAlignment.RIGHT)
+        val width = floatArrayOf(200f, 200f)
+        val table = Table(width)
+        table.setHorizontalAlignment(HorizontalAlignment.CENTER)
+        table.addCell(Cell().add(Paragraph("Name")))
+        table.addCell(Cell().add(Paragraph(data[0])))
+        table.addCell(Cell().add(Paragraph("Place & Date Birth")))
+        table.addCell(Cell().add(Paragraph(data[3]+ data[4])))
+        table.addCell(Cell().add(Paragraph("Email")))
+        table.addCell(Cell().add(Paragraph(data[1])))
+        table.addCell(Cell().add(Paragraph("Telephone")))
+        table.addCell(Cell().add(Paragraph(data[2])))
+        table.addCell(Cell().add(Paragraph("Location")))
+        table.addCell(Cell().add(Paragraph(data[5])))
+        document.add(title)
+        document.add(nosurat)
+        document.add(opening)
+        document.add(opening2)
+        document.add(table)
+        document.add(closing)
+        document.add(closing2)
+        document.add(closing3)
+        document.add(image)
+        document.close()
     }
 
     override fun onRequestPermissionsResult(
@@ -342,7 +403,13 @@ class ProgressOne : AppCompatActivity() {
         return true
     }
 
+    override fun finish() {
+        super.finish()
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+    }
+
     companion object {
+        private const val STORAGE_CODE = 1000
         private val REQUIRED_PERMISSION = arrayOf(Manifest.permission.CAMERA)
         private const val REQUEST_CODE = 20
     }

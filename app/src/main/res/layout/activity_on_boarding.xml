@@ -26,7 +26,7 @@
         android:fontFamily="@font/worksans_bold"
         android:gravity="center_horizontal"
         android:text="@string/title_menu_1"
-        android:textColor="@color/black"
+        android:textColor="?colorOnPrimary"
         android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/logoMenu1"
@@ -41,7 +41,7 @@
         android:fontFamily="@font/worksans_regular"
         android:gravity="center_horizontal"
         android:text="@string/desc_menu_1"
-        android:textColor="@color/black"
+        android:textColor="?colorOnPrimary"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@+id/titleMenu1"
         app:layout_constraintStart_toStartOf="@+id/titleMenu1"
@@ -65,7 +65,7 @@
         android:fontFamily="@font/worksans_bold"
         android:gravity="center_horizontal"
         android:text="@string/title_menu_2"
-        android:textColor="@color/black"
+        android:textColor="?colorOnPrimary"
         android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/logoMenu2"
@@ -80,7 +80,7 @@
         android:fontFamily="@font/worksans_regular"
         android:gravity="center_horizontal"
         android:text="@string/desc_menu_2"
-        android:textColor="@color/black"
+        android:textColor="?colorOnPrimary"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@+id/titleMenu2"
         app:layout_constraintStart_toStartOf="@+id/titleMenu2"
@@ -104,7 +104,7 @@
         android:fontFamily="@font/worksans_bold"
         android:gravity="center_horizontal"
         android:text="@string/title_menu_3"
-        android:textColor="@color/black"
+        android:textColor="?colorOnPrimary"
         android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/logoMenu3"
@@ -119,7 +119,7 @@
         android:fontFamily="@font/worksans_regular"
         android:gravity="center_horizontal"
         android:text="@string/desc_menu_3"
-        android:textColor="@color/black"
+        android:textColor="?colorOnPrimary"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@+id/titleMenu3"
         app:layout_constraintStart_toStartOf="@+id/titleMenu3"
@@ -134,8 +134,7 @@
         app:layout_constraintEnd_toStartOf="@+id/menu2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="parent"
-        app:srcCompat="@drawable/ic_circle_24"
-        app:tint="@color/darkblue" />
+        app:srcCompat="@drawable/ic_circle_24" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/menu2"
@@ -148,8 +147,7 @@
         app:layout_constraintStart_toEndOf="@+id/menu1"
         app:layout_constraintTop_toTopOf="@+id/menu1"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/ic_circle_24"
-        app:tint="@color/darkblue" />
+        app:srcCompat="@drawable/ic_circle_24" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/menu3"
@@ -158,7 +156,6 @@
         app:altSrc="@drawable/ic_circle_full_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_circle_24"
-        app:tint="@color/darkblue"
         tools:layout_editor_absoluteY="669dp" />
 
     <Button
@@ -168,9 +165,10 @@
         android:layout_marginStart="32dp"
         android:layout_marginBottom="32dp"
         android:alpha="0"
-        android:backgroundTint="@color/darkblue"
+        android:backgroundTint="?colorPrimaryVariant"
         android:text="@string/regist"
-        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:textColor="?colorOnSecondary"
         app:layout_constraintBottom_toTopOf="@+id/menu2"
         app:layout_constraintStart_toStartOf="parent"
         app:shapeAppearance="@style/ShapeAppearanceOverlay.TextInputLayout.Rounded" />
@@ -182,9 +180,10 @@
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
         android:alpha="0"
-        android:backgroundTint="@color/darkblue"
+        android:backgroundTint="?colorPrimaryVariant"
         android:text="@string/login"
-        android:textColor="@color/white"
+        android:textColor="?colorOnSecondary"
+        android:textAllCaps="false"
         app:layout_constraintBottom_toTopOf="@+id/menu2"
         app:layout_constraintEnd_toEndOf="parent"
         app:shapeAppearance="@style/ShapeAppearanceOverlay.TextInputLayout.Rounded" />

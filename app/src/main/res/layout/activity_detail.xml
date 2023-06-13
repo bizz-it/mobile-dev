@@ -1,253 +1,240 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:clipToPadding="false"
-    tools:context=".ui.agreement.ProgressOne">
+    android:background="?colorOnSecondary"
+    tools:context=".ui.detail.DetailActivity">
 
-    <androidx.compose.ui.platform.ComposeView
-        android:id="@+id/composeView"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/grey"
-        android:elevation="5dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/composeView" />
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/composeView"
+        android:background="?colorOnSecondary"
         tools:context=".ui.detail.DetailActivity">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.compose.ui.platform.ComposeView
+            android:id="@+id/composeView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:context=".ui.detail.DetailActivity">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/logo"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="24dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/logo"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/composeView" />
 
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/brand"
-                android:layout_width="210dp"
-                android:layout_height="36dp"
-                android:layout_marginStart="20dp"
-                android:fontFamily="@font/worksans_bold"
-                android:text="Mixue"
-                android:textColor="?colorOnPrimary"
-                android:textSize="30sp"
-                app:layout_constraintStart_toEndOf="@+id/logo"
-                app:layout_constraintTop_toTopOf="@+id/logo" />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/brand"
+            android:layout_width="210dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="20dp"
+            android:text="Mixue"
+            android:fontFamily="@font/worksans_bold"
+            android:textSize="30sp"
+            android:textColor="?colorOnPrimary"
+            app:layout_constraintStart_toEndOf="@+id/logo"
+            app:layout_constraintTop_toTopOf="@+id/logo" />
 
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/gerai"
-                android:layout_width="210dp"
-                android:layout_height="28dp"
-                android:layout_marginTop="24dp"
-                android:fontFamily="@font/worksans_semibold"
-                android:text="Mixue"
-                android:textColor="?colorOnPrimary"
-                android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="@+id/brand"
-                app:layout_constraintTop_toBottomOf="@+id/brand" />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/gerai"
+            android:layout_width="210dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/worksans_semibold"
+            android:text="Mixue"
+            android:textColor="?colorOnPrimary"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/brand"
+            app:layout_constraintTop_toBottomOf="@+id/brand" />
 
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/total"
-                android:layout_width="210dp"
-                android:layout_height="36dp"
-                android:layout_marginTop="24dp"
-                android:fontFamily="@font/worksans_bold"
-                android:text="1800"
-                android:textColor="?colorOnPrimary"
-                android:textSize="30sp"
-                app:layout_constraintStart_toStartOf="@+id/brand"
-                app:layout_constraintTop_toTopOf="@+id/gerai" />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/total"
+            android:layout_width="210dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/worksans_bold"
+            android:text="1800"
+            android:textColor="?colorOnPrimary"
+            android:textSize="30sp"
+            app:layout_constraintStart_toStartOf="@+id/brand"
+            app:layout_constraintTop_toTopOf="@+id/gerai" />
 
-            <androidx.compose.ui.platform.ComposeView
-                android:id="@+id/lazyPhoto"
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/total" />
+        <androidx.compose.ui.platform.ComposeView
+            android:id="@+id/lazyPhoto"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/total" />
 
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/brandBig"
-                android:layout_width="350dp"
-                android:layout_height="36dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="32dp"
-                android:fontFamily="@font/worksans_bold"
-                android:text="1800"
-                android:textColor="?colorOnPrimary"
-                android:textSize="24sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/lazyPhoto" />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/brandBig"
+            android:layout_width="350dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:fontFamily="@font/worksans_bold"
+            android:text="1800"
+            android:textColor="?colorOnPrimary"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lazyPhoto" />
 
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/detailBrand"
-                android:layout_width="350dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:fontFamily="@font/worksans_regular"
-                android:text="Mixue Ice Cream Tea is a franchise company that sells soft serve ice cream and tea drinks from Zhengzhou, Henan, China and was founded on June 16, 1997. As of 2023, at least 21,581 Mixue outlets have been operating in China and at least 12 other countries in Asia- Pacific."
-                android:textColor="?colorOnPrimary"
-                android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/brandBig" />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/detailBrand"
+            android:layout_width="350dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:fontFamily="@font/worksans_regular"
+            android:text="Mixue Ice Cream Tea is a franchise company that sells soft serve ice cream and tea drinks from Zhengzhou, Henan, China and was founded on June 16, 1997. As of 2023, at least 21,581 Mixue outlets have been operating in China and at least 12 other countries in Asia- Pacific."
+            android:textColor="?colorOnPrimary"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/brandBig" />
 
-            <View
-                android:id="@+id/view2"
-                android:layout_width="350dp"
-                android:layout_height="1dp"
-                android:layout_marginTop="24dp"
-                android:background="@color/grey"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/detailBrand" />
+        <View
+            android:id="@+id/view2"
+            android:layout_width="350dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="24dp"
+            android:background="@color/grey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detailBrand" />
 
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/document"
-                android:layout_width="350dp"
-                android:layout_height="36dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="32dp"
-                android:fontFamily="@font/worksans_bold"
-                android:text="1800"
-                android:textColor="?colorOnPrimary"
-                android:textSize="24sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view2" />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/document"
+            android:layout_width="350dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="32dp"
+            android:fontFamily="@font/worksans_bold"
+            android:text="1800"
+            android:textColor="?colorOnPrimary"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view2" />
 
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/detailDoc"
-                android:layout_width="350dp"
-                android:layout_height="70dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:fontFamily="@font/worksans_regular"
-                android:text="Mixue Ice Cream Tea is a franchise company that sells soft serve ice cream and tea drinks from Zhengzhou, Henan, China and was founded on June 16, 1997. As of 2023, at least 21,581 Mixue outlets have been operating in China and at least 12 other countries in Asia- Pacific."
-                android:textColor="?colorOnPrimary"
-                android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/document" />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/detailDoc"
+            android:layout_width="350dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:fontFamily="@font/worksans_regular"
+            android:text="Mixue Ice Cream Tea is a franchise company that sells soft serve ice cream and tea drinks from Zhengzhou, Henan, China and was founded on June 16, 1997. As of 2023, at least 21,581 Mixue outlets have been operating in China and at least 12 other countries in Asia- Pacific."
+            android:textColor="?colorOnPrimary"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/document" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/seeDoc"
-                android:layout_width="150dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="8dp"
-                android:backgroundTint="?colorOnSecondary"
-                android:contentDescription=""
-                android:elevation="4dp"
-                android:fontFamily="@font/worksans_semibold"
-                android:text="View Doc"
-                android:textAllCaps="false"
-                android:textColor="?colorPrimary"
-                app:icon="@drawable/round_pageview_24"
-                app:iconGravity="textStart"
-                app:iconTint="?colorPrimary"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/detailDoc"
-                app:shapeAppearance="@style/ShapeAppearanceOverlay.TextInputLayout.Rounded"
-                app:strokeColor="?colorPrimary"
-                app:strokeWidth="2dp" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/seeDoc"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="?colorOnSecondary"
+            app:icon="@drawable/round_pageview_24"
+            app:iconTint="?colorPrimaryVariant"
+            app:iconGravity="textStart"
+            android:text="View Doc"
+            android:textAllCaps="false"
+            android:fontFamily="@font/worksans_semibold"
+            android:textColor="?colorPrimaryVariant"
+            app:shapeAppearance="@style/ShapeAppearanceOverlay.TextInputLayout.Rounded"
+            app:strokeColor="?colorPrimaryVariant"
+            app:strokeWidth="2dp"
+            android:elevation="4dp"
+            android:contentDescription=""
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detailDoc" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/downloadDoc"
-                android:layout_width="150dp"
-                android:layout_height="60dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="32dp"
-                android:backgroundTint="?colorOnSecondary"
-                android:elevation="4dp"
-                android:fontFamily="@font/worksans_semibold"
-                android:text="Download"
-                android:textAllCaps="false"
-                android:textColor="?colorPrimary"
-                app:icon="@drawable/round_file_download_24"
-                app:iconGravity="textStart"
-                app:iconTint="?colorPrimary"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/detailDoc"
-                app:shapeAppearance="@style/ShapeAppearanceOverlay.TextInputLayout.Rounded"
-                app:strokeColor="?colorPrimary"
-                app:strokeWidth="2dp" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/downloadDoc"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="?colorOnSecondary"
+            app:icon="@drawable/round_file_download_24"
+            app:iconTint="?colorPrimaryVariant"
+            app:iconGravity="textStart"
+            android:text="Download"
+            android:elevation="4dp"
+            android:textAllCaps="false"
+            android:fontFamily="@font/worksans_semibold"
+            android:textColor="?colorPrimaryVariant"
+            app:shapeAppearance="@style/ShapeAppearanceOverlay.TextInputLayout.Rounded"
+            app:strokeColor="?colorPrimaryVariant"
+            app:strokeWidth="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detailDoc" />
 
-            <View
-                android:id="@+id/view3"
-                android:layout_width="350dp"
-                android:layout_height="1dp"
-                android:layout_marginTop="24dp"
-                android:background="@color/grey"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/downloadDoc" />
+        <View
+            android:id="@+id/view3"
+            android:layout_width="350dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="24dp"
+            android:background="@color/grey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/downloadDoc" />
 
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/step"
-                android:layout_width="350dp"
-                android:layout_height="36dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="32dp"
-                android:fontFamily="@font/worksans_bold"
-                android:text="1800"
-                android:textColor="?colorOnPrimary"
-                android:textSize="24sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view3" />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/step"
+            android:layout_width="350dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="32dp"
+            android:fontFamily="@font/worksans_bold"
+            android:text="1800"
+            android:textColor="?colorOnPrimary"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view3" />
 
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/detailStep"
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:fontFamily="@font/worksans_regular"
-                android:text="Mixue Ice Cream Tea is a franchise company that sells soft serve ice cream and tea drinks from Zhengzhou, Henan, China and was founded on June 16, 1997. As of 2023, at least 21,581 Mixue outlets have been operating in China and at least 12 other countries in Asia- Pacific."
-                android:textColor="?colorOnPrimary"
-                android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/step" />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/detailStep"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:fontFamily="@font/worksans_regular"
+            android:text="Mixue Ice Cream Tea is a franchise company that sells soft serve ice cream and tea drinks from Zhengzhou, Henan, China and was founded on June 16, 1997. As of 2023, at least 21,581 Mixue outlets have been operating in China and at least 12 other countries in Asia- Pacific."
+            android:textColor="?colorOnPrimary"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/step" />
 
-            <androidx.compose.ui.platform.ComposeView
-                android:id="@+id/composeButton"
-                android:layout_width="340dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:paddingBottom="24dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/detailStep" />
+        <androidx.compose.ui.platform.ComposeView
+            android:id="@+id/composeButton"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:paddingBottom="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detailStep" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </ScrollView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

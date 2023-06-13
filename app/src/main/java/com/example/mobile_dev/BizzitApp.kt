@@ -29,6 +29,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.mobile_dev.ui.navigation.NavigationItem
 import com.example.mobile_dev.ui.navigation.Screen
+import com.example.mobile_dev.ui.screen.catalog.CatalogScreen
 import com.example.mobile_dev.ui.screen.education.ClassScreen
 import com.example.mobile_dev.ui.screen.home.HomeScreen
 import com.example.mobile_dev.ui.screen.profile.ProfileScreen
@@ -62,8 +63,8 @@ fun BizzitApp(
                     }
                 )
             }
-            composable(Screen.History.route) {
-                // History
+            composable(Screen.Catalog.route) {
+                CatalogScreen()
             }
             composable(Screen.Camera.route) {
                 // Camera
@@ -97,7 +98,7 @@ private fun BottomBar(
             NavigationItem(
                 title = stringResource(R.string.menu_history),
                 icon = Icons.Default.History,
-                screen = Screen.History
+                screen = Screen.Catalog
             ),
             NavigationItem(
                 title = stringResource(R.string.menu_camera),
