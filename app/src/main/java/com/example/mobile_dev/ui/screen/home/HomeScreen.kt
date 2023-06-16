@@ -19,7 +19,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.mobile_dev.R
 import com.example.mobile_dev.data.response.DataItem
-import com.example.mobile_dev.model.dummyCategory
+import com.example.mobile_dev.model.FakeCategoryDataSource.dummyCategory
 import com.example.mobile_dev.ui.component.CategoryItem
 import com.example.mobile_dev.ui.component.FranchiseItem
 import com.example.mobile_dev.ui.component.HomeSection
