@@ -23,15 +23,15 @@ class SplashActivity :  AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         val pref = UserPreferences.getInstance(dataStore)
         val mainViewModel = ViewModelProvider(this, SettingFactory(pref))[SettingViewModel::class.java]
-        mainViewModel.getUserData().observe(this) {
-            isLogin = it.token.isEmpty()
+        mainViewModel.getState().observe(this) {
+            isLogin = it
         }
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
         binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
         Handler(Looper.getMainLooper()).postDelayed({
-            if (!isLogin) {
+            if (isLogin) {
                 val intent = Intent(this@SplashActivity, MainActivity::class.java)
                 startActivity(intent)
             } else {
@@ -47,6 +47,6 @@ class SplashActivity :  AppCompatActivity() {
     }
 
     companion object {
-        const val DURATION: Long = 3500
+        const val DURATION: Long = 1500
     }
 }

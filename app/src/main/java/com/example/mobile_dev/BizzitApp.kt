@@ -3,7 +3,6 @@ package com.example.mobile_dev
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
@@ -12,6 +11,7 @@ import androidx.compose.material.icons.filled.Class
 import androidx.compose.material.icons.filled.History
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -19,24 +19,28 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color.Companion.LightGray
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
+import com.example.mobile_dev.data.response.DataItem
+import com.example.mobile_dev.ui.detail.DetailScreen
 import com.example.mobile_dev.ui.navigation.NavigationItem
 import com.example.mobile_dev.ui.navigation.Screen
 import com.example.mobile_dev.ui.screen.catalog.CatalogScreen
 import com.example.mobile_dev.ui.screen.education.ClassScreen
 import com.example.mobile_dev.ui.screen.home.HomeScreen
 import com.example.mobile_dev.ui.screen.profile.ProfileScreen
-import com.example.mobile_dev.ui.theme.MobiledevTheme
+import com.example.mobile_dev.ui.screen.scan.ScanScreen
 
 @Composable
 fun BizzitApp(
+    listFranchise: List<DataItem>,
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
 ) {
@@ -58,22 +62,29 @@ fun BizzitApp(
         ) {
             composable(Screen.Home.route) {
                 HomeScreen(
-                    navigateToDetail = { franchiseId ->
-                        navController.navigate(Screen.DetailFranchise.createRoute(franchiseId))
-                    }
-                )
+                    listFranchise = listFranchise
+                ) { franchiseId ->
+                    navController.navigate(Screen.DetailFranchise.createRoute(franchiseId))
+                }
             }
             composable(Screen.Catalog.route) {
                 CatalogScreen()
             }
             composable(Screen.Camera.route) {
-                // Camera
+                ScanScreen()
             }
             composable(Screen.Class.route) {
                 ClassScreen()
             }
             composable(Screen.Profile.route) {
                 ProfileScreen()
+            }
+            composable(
+                route = Screen.DetailFranchise.route,
+                arguments = listOf(navArgument("franchiseId") { type = NavType.StringType }),
+            ) {
+                val id = it.arguments?.getString("franchiseId")
+                DetailScreen(franchiseId = id.toString())
             }
         }
     }
@@ -117,8 +128,8 @@ private fun BottomBar(
             ),
         )
         BottomNavigation(
-            backgroundColor = MaterialTheme.colors.onPrimary,
-            contentColor = MaterialTheme.colors.primary,
+            backgroundColor = MaterialTheme.colorScheme.onPrimary,
+            contentColor = MaterialTheme.colorScheme.primary,
             modifier = Modifier
         ) {
             navigationItems.map { item ->
@@ -153,10 +164,10 @@ private fun BottomBar(
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-fun BizzitAppPreview() {
-    MobiledevTheme {
-        BizzitApp()
-    }
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun BizzitAppPreview() {
+//    MobiledevTheme {
+//        BizzitApp()
+//    }
+//}

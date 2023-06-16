@@ -15,10 +15,8 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
         app:layout_constraintTop_toBottomOf="@+id/composeView">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -30,6 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:layout_marginTop="16dp"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -69,11 +68,11 @@
                 android:layout_width="350dp"
                 android:layout_height="36dp"
                 android:layout_marginStart="32dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="32dp"
                 android:fontFamily="@font/worksans_bold"
                 android:text="@string/franchiseprofile"
-                android:textColor="?colorSecondary"
+                android:textColor="@color/yellow"
                 android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -103,7 +102,7 @@
                 android:layout_marginEnd="32dp"
                 android:fontFamily="@font/worksans_regular"
                 android:hint="@string/name"
-                android:textColorHint="?colorPrimary"
+                android:textColorHint="?colorTertiary"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -129,7 +128,7 @@
                 android:layout_marginEnd="32dp"
                 android:fontFamily="@font/worksans_regular"
                 android:hint="@string/email"
-                android:textColorHint="?colorPrimary"
+                android:textColorHint="?colorTertiary"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -155,7 +154,7 @@
                 android:layout_marginEnd="32dp"
                 android:fontFamily="@font/worksans_regular"
                 android:hint="@string/telf"
-                android:textColorHint="?colorPrimary"
+                android:textColorHint="?colorTertiary"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -179,7 +178,7 @@
                 android:layout_marginTop="12dp"
                 android:fontFamily="@font/worksans_regular"
                 android:hint="@string/date"
-                android:textColorHint="?colorPrimary"
+                android:textColorHint="?colorTertiary"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="@+id/place"
                 app:layout_constraintStart_toStartOf="@+id/telf"
@@ -195,6 +194,21 @@
                     android:saveEnabled="true" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/datebtn"
+                android:layout_width="32dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/worksans_bold"
+                android:src="@drawable/round_date_range_24"
+                android:textAllCaps="false"
+                android:textColor="?colorOnSecondary"
+                android:layout_marginTop="2dp"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/date"
+                app:layout_constraintEnd_toEndOf="@+id/date"
+                app:layout_constraintTop_toTopOf="@+id/date" />
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/place"
                 style="@style/LoginTextInputLayoutStyle"
@@ -203,7 +217,7 @@
                 android:layout_marginTop="12dp"
                 android:fontFamily="@font/worksans_regular"
                 android:hint="@string/place"
-                android:textColorHint="?colorPrimary"
+                android:textColorHint="?colorTertiary"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="@+id/telf"
                 app:layout_constraintTop_toBottomOf="@id/telf"
@@ -237,7 +251,7 @@
                     android:layout_marginBottom="2dp"
                     android:fontFamily="@font/worksans_regular"
                     android:hint="@string/location"
-                    android:textColorHint="?colorPrimary"
+                    android:textColorHint="?colorTertiary"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -279,7 +293,7 @@
                 android:layout_marginEnd="32dp"
                 android:fontFamily="@font/worksans_bold"
                 android:text="@string/locationphoto"
-                android:textColor="?colorSecondary"
+                android:textColor="@color/yellow"
                 android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -314,6 +328,7 @@
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/photo"
+                    android:scaleType="fitXY"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:layout_marginStart="16dp"
@@ -377,9 +392,7 @@
             <androidx.compose.ui.platform.ComposeView
                 android:id="@+id/nextBtn"
                 android:layout_width="340dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:paddingBottom="16dp"
+                android:layout_height="150dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/radiogroup" />

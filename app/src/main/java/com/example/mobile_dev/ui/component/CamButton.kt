@@ -1,8 +1,9 @@
 package com.example.mobile_dev.ui.component
 
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -35,14 +36,15 @@ fun CamButton(
     modifier: Modifier = Modifier,
     onClick: () -> Unit,
 ) {
-    Box(modifier = modifier.width(140.dp)) {
+    Box(modifier = modifier.width(140.dp), contentAlignment = Alignment.Center) {
         Button(
             onClick = onClick,
             shape = RoundedCornerShape(20),
             colors = ButtonDefaults.buttonColors(colorResource(R.color.lightblue)),
             modifier = modifier
                 .width(140.dp)
-                .height(40.dp)
+                .height(40.dp),
+            contentPadding = PaddingValues(end = 80.dp)
         ) {
             Icon(
                 imageVector = Icons.Default.AddAPhoto,
@@ -50,20 +52,20 @@ fun CamButton(
                 contentDescription = null,
                 tint = colorResource(R.color.white),
             )
-            Row(verticalAlignment = Alignment.CenterVertically, modifier = modifier.fillMaxHeight()) {
-                Text(
-                    text = title,
-                    fontSize = 10.sp,
-                    fontFamily = FontFamily(Font(R.font.worksans_bold, FontWeight.Bold)),
-                    color = colorResource(R.color.white),
-                    textAlign = TextAlign.Center,
-                    style = MaterialTheme.typography.bodyLarge.copy(
-                        fontWeight = FontWeight.ExtraBold
-                    ),
-                    modifier = modifier
-                        .padding(start = 4.dp),
-                )
-            }
+        }
+        Row(verticalAlignment = Alignment.CenterVertically, modifier = modifier.width(100.dp)) {
+            Text(
+                text = title,
+                fontSize = 12.sp,
+                fontFamily = FontFamily(Font(R.font.worksans_bold, FontWeight.Bold)),
+                color = colorResource(R.color.white),
+                textAlign = TextAlign.End,
+                style = MaterialTheme.typography.bodyLarge.copy(
+                    fontWeight = FontWeight.ExtraBold
+                ),
+                modifier = modifier
+                    .padding(start = 4.dp).fillMaxWidth(),
+            )
         }
     }
 }

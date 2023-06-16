@@ -23,7 +23,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -53,12 +52,10 @@ fun CatalogItem(
     ) {
         var color: Color = LightBlue
         var icon: ImageVector = Icons.Outlined.Info
-        var textInfo: String = stringResource(id = R.string.info_process)
         when (state) {
             "Process" -> {
                 color = LightBlue
                 icon = Icons.Outlined.Info
-                textInfo = stringResource(id = R.string.info_pending)
             }
             "Reject" -> {
                 color = Yellow
@@ -87,8 +84,7 @@ fun CatalogItem(
                     modifier = modifier
                         .width(80.dp)
                         .height(20.dp)
-                        .fillMaxWidth()
-                        .background(color.copy(0.2f), RoundedCornerShape(12.dp)),
+                        .fillMaxWidth().background(color.copy(0.2f), RoundedCornerShape(12.dp)),
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.Center
                 ) {
@@ -99,11 +95,12 @@ fun CatalogItem(
                         fontFamily = FontFamily(Font(R.font.worksans_regular)),
                         letterSpacing = 0.1.sp,
                         fontSize = 10.sp,
+                        color = Color.Black
                     )
                 }
             }
             Text(
-                text = stringResource(id = R.string.submitted),
+                text = "Pengajuan: 22 May 2023",
                 fontWeight = FontWeight.Bold,
                 fontFamily = FontFamily(Font(R.font.worksans_semibold)),
                 fontSize = 14.sp,
@@ -125,11 +122,12 @@ fun CatalogItem(
                 Spacer(modifier = Modifier.width(16.dp))
                 Text(
                     modifier = modifier.width(260.dp),
-                    text = textInfo,
+                    text = "Dokumen sedang diproses paling lambat H+7 setelah pengajuan",
                     letterSpacing = 0.1.sp,
                     lineHeight = 20.sp,
                     fontFamily = FontFamily(Font(R.font.worksans_regular)),
                     fontSize = 12.sp,
+                    color = Color.Black
                 )
             }
         }

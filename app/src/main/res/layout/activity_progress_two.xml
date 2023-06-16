@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".ui.agreement.ProgressTwo">
 
     <androidx.compose.ui.platform.ComposeView
@@ -13,15 +13,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/composeView">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
     <LinearLayout
         android:id="@+id/progress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-        android:layout_marginTop="28dp"
-        app:layout_constraintStart_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/composeView">
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/shapeableImageView1"
@@ -57,10 +67,10 @@
         android:layout_width="350dp"
         android:layout_height="36dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="32dp"
         android:fontFamily="@font/worksans_bold"
-        android:text="@string/idcheck"
+        android:text="@string/doccheck"
         android:textColor="?colorSecondary"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -74,30 +84,48 @@
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:fontFamily="@font/worksans_regular"
-        android:text="@string/idcheckdetail"
+        android:text="@string/doccheckdetail"
         android:textColor="?colorOnPrimary"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profile" />
 
+            <RelativeLayout
+                android:id="@+id/pdf"
+                android:layout_width="340dp"
+                android:layout_height="400dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/profiledetail"
+                android:padding="8dp"
+                android:background="@drawable/inputbox">
+
+                <com.github.barteksc.pdfviewer.PDFView
+                    android:id="@+id/pdfView"
+                    style="@style/LoginTextInputLayoutStyle"
+                    android:layout_width="450dp"
+                    android:layout_height="540dp" />
+            </RelativeLayout>
+
     <RelativeLayout
         android:id="@+id/signatureContainer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="8dp"
         android:background="@color/cream"
-        app:layout_constraintBottom_toTopOf="@+id/linearButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pdf">
 
-<!--        <com.github.gcacace.signaturepad.views.SignaturePad-->
-<!--            android:id="@+id/signaturePad"-->
-<!--            android:layout_width="340dp"-->
-<!--            android:layout_height="160dp"-->
-<!--            app:penColor="@android:color/black" />-->
+        <com.github.gcacace.signaturepad.views.SignaturePad
+            android:id="@+id/signaturePad"
+            android:layout_width="340dp"
+            android:layout_height="160dp"
+            app:penColor="@android:color/black" />
     </RelativeLayout>
 
     <LinearLayout
@@ -106,12 +134,11 @@
         android:layout_height="60dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="8dp"
         android:gravity="center"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/nextBtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signatureContainer">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/refresh"
@@ -121,7 +148,6 @@
             android:text="Refresh"
             android:textAllCaps="false"
             android:textColor="?colorOnSecondary"
-            android:backgroundTint="?colorPrimaryVariant"
             android:textSize="16sp" />
 
         <com.google.android.material.button.MaterialButton
@@ -133,7 +159,6 @@
             android:text="Save"
             android:textAllCaps="false"
             android:textColor="?colorOnSecondary"
-            android:backgroundTint="?colorPrimaryVariant"
             android:textSize="16sp" />
 
     </LinearLayout>
@@ -141,10 +166,11 @@
     <androidx.compose.ui.platform.ComposeView
         android:id="@+id/nextBtn"
         android:layout_width="340dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profiledetail" />
-
+        app:layout_constraintTop_toBottomOf="@+id/linearButton" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

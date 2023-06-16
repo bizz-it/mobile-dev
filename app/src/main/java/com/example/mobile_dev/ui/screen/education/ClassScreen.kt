@@ -5,7 +5,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.viewinterop.AndroidViewBinding
 import com.example.mobile_dev.R
 import com.example.mobile_dev.databinding.ActivityClassBinding
-import com.example.mobile_dev.databinding.ActivityProfileBinding
 import com.example.mobile_dev.ui.component.TopBar
 import com.example.mobile_dev.ui.theme.MobiledevTheme
 
@@ -15,7 +14,7 @@ fun ClassScreen(){
         this.composeView.setContent {
             MobiledevTheme {
                 TopBar(
-                    false, stringResource(R.string.menu_class), onClick = {}
+                    true, stringResource(R.string.menu_class), onClick = {}
                 )
             }
         }

@@ -26,8 +26,7 @@ fun CatalogScreen() {
                 false, stringResource(R.string.menu_history), onClick = {}
             )
         },
-        modifier = Modifier
-            .fillMaxWidth()
+        modifier = Modifier.fillMaxWidth(),
     ) {
         Column(
             verticalArrangement = Arrangement.Center,

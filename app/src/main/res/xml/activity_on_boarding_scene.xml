@@ -124,13 +124,13 @@
             android:id="@+id/buttonRegister" />
         <Constraint
             motion:layout_constraintEnd_toEndOf="parent"
-            android:layout_width="144dp"
-            android:layout_height="52dp"
+            android:layout_width="244dp"
+            android:layout_height="68dp"
             android:layout_marginBottom="24dp"
             motion:layout_constraintBottom_toTopOf="@+id/menu2"
             android:layout_marginEnd="32dp"
             android:alpha="0"
-            android:id="@+id/buttonLogin" />
+            android:id="@+id/buttonStart" />
         <Constraint
             motion:layout_constraintEnd_toEndOf="@+id/logoMenu1"
             android:layout_width="0dp"
@@ -355,14 +355,14 @@
             android:layout_marginStart="44dp"
             motion:layout_constraintStart_toStartOf="parent" />
         <Constraint
-            android:id="@+id/buttonLogin"
+            android:id="@+id/buttonStart"
             motion:layout_constraintEnd_toEndOf="parent"
-            android:layout_width="144dp"
-            android:layout_height="52dp"
+            android:layout_width="244dp"
+            android:layout_height="68dp"
             android:layout_marginBottom="24dp"
             motion:layout_constraintBottom_toTopOf="@+id/menu2"
-            android:layout_marginEnd="44dp"
-            android:alpha="1" />
+            android:alpha="1"
+            motion:layout_constraintStart_toStartOf="parent" />
         <Constraint
             motion:layout_constraintEnd_toEndOf="@+id/logoMenu3"
             android:layout_width="300dp"

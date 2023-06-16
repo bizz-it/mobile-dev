@@ -1,11 +1,6 @@
 package com.example.mobile_dev.ui.screen.profile
 
-import android.app.Activity
-import android.content.Intent
-import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.viewinterop.AndroidViewBinding
 import com.example.mobile_dev.R
@@ -23,8 +18,6 @@ fun ProfileScreen(){
                 )
             }
         }
-//        this.
     }
 }
-
 

@@ -57,7 +57,7 @@ fun ButtonApp(
 @Composable
 @Preview(showBackground = true)
 fun ButtonAppPreview() {
-    MobiledevTheme() {
+    MobiledevTheme {
         ButtonApp(
             title = "Agreement",
             onClick = {}

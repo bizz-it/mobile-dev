@@ -1,9 +1,8 @@
 package com.example.mobile_dev.model
-
 import com.example.mobile_dev.R
 
-object FakeFranchiseDataSource {
-    val dummyFranchises = listOf(
+object FranchiseDataSource {
+    val dummyFranchises = arrayListOf(
         Franchise(
             "1",
             R.drawable.logo_mixue,

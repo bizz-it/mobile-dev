@@ -7,8 +7,6 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.mobile_dev.data.response.AuthResponse
 import com.example.mobile_dev.data.response.UserResponse
-import com.example.mobile_dev.ui.screen.home.HomeViewModel
-
 import kotlinx.coroutines.launch
 
 class SettingViewModel (private val pref: UserPreferences) : ViewModel() {
@@ -21,6 +19,17 @@ class SettingViewModel (private val pref: UserPreferences) : ViewModel() {
             pref.putUserData(userData)
         }
     }
+
+    fun getState(): LiveData<Boolean> {
+        return pref.getState().asLiveData()
+    }
+
+    fun saveState(userData: Boolean?) {
+        viewModelScope.launch {
+            pref.stateOnboard(userData)
+        }
+    }
+
     fun deleteData() {
         viewModelScope.launch {
             pref.deleteData()

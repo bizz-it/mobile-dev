@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
+import com.example.mobile_dev.MainActivity
 import com.example.mobile_dev.R
 import com.example.mobile_dev.SettingFactory
 import com.example.mobile_dev.SettingViewModel
@@ -25,7 +26,6 @@ import com.example.mobile_dev.databinding.DialogchooseBinding
 import com.example.mobile_dev.ui.auth.dataStore
 import com.example.mobile_dev.ui.component.ButtonApp
 import com.example.mobile_dev.ui.component.TopBar
-import com.example.mobile_dev.ui.detail.DetailActivity
 import com.example.mobile_dev.ui.theme.MobiledevTheme
 import com.example.mobile_dev.uriToFile
 import java.io.File
@@ -117,7 +117,7 @@ class ProgressFour : AppCompatActivity() {
                     getString(R.string.next),
                     onClick = {
                         if(isPhoto) {
-                            val i = Intent(this@ProgressFour, DetailActivity::class.java)
+                            val i = Intent(this@ProgressFour, MainActivity::class.java)
                             startActivity(i)
                         } else {
                             Toast.makeText(this@ProgressFour, resources.getString(R.string.errorphoto), Toast.LENGTH_SHORT).show()

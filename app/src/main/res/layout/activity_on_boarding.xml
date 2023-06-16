@@ -158,30 +158,17 @@
         app:srcCompat="@drawable/ic_circle_24"
         tools:layout_editor_absoluteY="669dp" />
 
-    <Button
-        android:id="@+id/buttonRegister"
-        android:layout_width="144dp"
-        android:layout_height="68dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginBottom="32dp"
-        android:alpha="0"
-        android:backgroundTint="?colorPrimaryVariant"
-        android:text="@string/regist"
-        android:textAllCaps="false"
-        android:textColor="?colorOnSecondary"
-        app:layout_constraintBottom_toTopOf="@+id/menu2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:shapeAppearance="@style/ShapeAppearanceOverlay.TextInputLayout.Rounded" />
+
 
     <Button
-        android:id="@+id/buttonLogin"
-        android:layout_width="144dp"
+        android:id="@+id/buttonStart"
+        android:layout_width="244dp"
         android:layout_height="68dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
         android:alpha="0"
         android:backgroundTint="?colorPrimaryVariant"
-        android:text="@string/login"
+        android:text="@string/start"
         android:textColor="?colorOnSecondary"
         android:textAllCaps="false"
         app:layout_constraintBottom_toTopOf="@+id/menu2"
