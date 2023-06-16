@@ -40,6 +40,18 @@ class UserPreferences private constructor(private val dataStore: DataStore<Prefe
         }
     }
 
+    suspend fun stateOnboard(state: Boolean?) {
+        dataStore.edit { preferences ->
+            preferences[STATE] = state as Boolean
+        }
+    }
+
+    fun getState(): Flow<Boolean> {
+        return dataStore.data.map { preferences ->
+                preferences[STATE] ?: false
+        }
+    }
+
     suspend fun deleteData() {
         dataStore.edit { preferences ->
             preferences.clear()
@@ -55,6 +67,7 @@ class UserPreferences private constructor(private val dataStore: DataStore<Prefe
         private val PLACE = stringPreferencesKey("placebirth")
         private val DATE = stringPreferencesKey("datebirth")
         private val STATUS = booleanPreferencesKey("status")
+        private val STATE = booleanPreferencesKey("state")
         private val TELF = stringPreferencesKey("telfuser")
         @Volatile
         private var INSTANCE: UserPreferences? = null

@@ -23,17 +23,18 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil.compose.AsyncImage
 import com.example.mobile_dev.R
 import com.example.mobile_dev.ui.theme.LightBlue
 import com.example.mobile_dev.ui.theme.MobiledevTheme
 
 @Composable
 fun FranchiseItem(
-    image: Int,
+    image: String,
     title: String,
     price: String,
-    totalShop: Int,
-    category: Int,
+    totalShop: Int?,
+    category: String,
     modifier: Modifier = Modifier,
 ) {
     Row(
@@ -42,18 +43,19 @@ fun FranchiseItem(
             .height(122.dp)
             .fillMaxWidth()
             .border(2.dp, LightBlue, RoundedCornerShape(12.dp)),
-        verticalAlignment = Alignment.CenterVertically
+        verticalAlignment = Alignment.CenterVertically,
     ) {
-        Image(
-            painter = painterResource(image),
+        AsyncImage(
+            alignment = Alignment.Center,
+            model = image,
             contentDescription = null,
-            contentScale = ContentScale.Fit,
+            contentScale = ContentScale.Crop,
             modifier = Modifier
                 .width(120.dp)
                 .height(120.dp)
         )
         Column(
-            modifier = Modifier.padding(16.dp, 16.dp, 16.dp, 8.dp)
+            modifier = Modifier.padding(16.dp, 8.dp, 16.dp, 8.dp),
         ) {
             Text(
                 text = title,
@@ -90,8 +92,21 @@ fun FranchiseItem(
                         fontSize = 12.sp,
                     )
                 }
+                var photo: Int = R.drawable.fnb_icon
+                when (category){
+                    "1" -> {
+                        photo = R.drawable.fnb_icon
+                    }
+                    "2" -> {
+                        photo = R.drawable.education_icon
+                    }
+                    "3" -> {
+                        photo = R.drawable.retail_icon
+                    }
+                    else -> {}
+                }
                 Image(
-                    painter = painterResource(category),
+                    painter = painterResource(photo),
                     contentDescription = null,
                     contentScale = ContentScale.Fit,
                     modifier = Modifier
@@ -100,7 +115,6 @@ fun FranchiseItem(
                         .align(Alignment.Bottom)
                         .weight(1f, false)
                 )
-
             }
         }
     }
@@ -111,11 +125,11 @@ fun FranchiseItem(
 fun FranchiseItemPreview() {
     MobiledevTheme {
         FranchiseItem(
-            R.drawable.logo_mixue,
+            "https://storage.googleapis.com/bizzit-387412.appspot.com/logo-Janji%20Jiwa_1686755391721",
             "Mixue Ice Cream & Teaa",
             "3,5 Mil",
             1800,
-            R.drawable.fnb_icon
+            "1",
         )
     }
 }

@@ -100,7 +100,7 @@ class RegisterActivity : AppCompatActivity() {
                         }
                         is Result.Success -> {
                             cancel()
-                            val i = Intent(this@RegisterActivity, OTPRegister::class.java)
+                            val i = Intent(this@RegisterActivity, LoginActivity::class.java)
                             Toast.makeText(this@RegisterActivity, resources.getString(R.string.successreg), Toast.LENGTH_SHORT).show()
                             startActivity(i)
                         }

@@ -95,6 +95,7 @@ fun CatalogItem(
                         fontFamily = FontFamily(Font(R.font.worksans_regular)),
                         letterSpacing = 0.1.sp,
                         fontSize = 10.sp,
+                        color = Color.Black
                     )
                 }
             }
@@ -126,6 +127,7 @@ fun CatalogItem(
                     lineHeight = 20.sp,
                     fontFamily = FontFamily(Font(R.font.worksans_regular)),
                     fontSize = 12.sp,
+                    color = Color.Black
                 )
             }
         }

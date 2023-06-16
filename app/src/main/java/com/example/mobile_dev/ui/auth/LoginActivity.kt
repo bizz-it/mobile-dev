@@ -36,7 +36,6 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
         supportActionBar?.setDisplayShowTitleEnabled(false)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-//        playAnimation()
 
         binding.regist.setOnClickListener{
             val i = Intent(this, RegisterActivity::class.java)
